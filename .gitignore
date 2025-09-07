@@ -6,6 +6,7 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+gcm-linux_amd64.2.5.0.deb
 
 node_modules
 dist
