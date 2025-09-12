@@ -9,7 +9,6 @@ import {
   ListItemButton,
   ListItemText,
   Box,
-  Divider,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
@@ -27,10 +26,8 @@ const defaultLinks: NavItem[] = [
   { label: 'maps', to: '/maps' },
 ];
 
-export default function Navbar({ links = defaultLinks, user = null, onSearch }: NavbarProps) {
+export default function Navbar({ links = defaultLinks, user = null }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
-  const [query, setQuery] = useState('');
 
 
   return (
@@ -77,7 +74,7 @@ export default function Navbar({ links = defaultLinks, user = null, onSearch }: 
           </div>
 
           <div className="flex items-center gap-2  justify-end max-sm:justify-center">
-            <IconButton aria-label="search" onClick={() => setSearchOpen((s) => !s)} size="large">
+            <IconButton aria-label="search" onClick={() => { }} size="large">
               <SearchIcon />
             </IconButton>
 
@@ -132,7 +129,7 @@ export default function Navbar({ links = defaultLinks, user = null, onSearch }: 
 
           <List>
             <ListItem disablePadding>
-              <ListItemButton onClick={() => { setSearchOpen(true); setMobileOpen(false); }}>
+              <ListItemButton onClick={() => { }}>
                 <ListItemText primary="Search" />
               </ListItemButton>
             </ListItem>
