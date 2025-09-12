@@ -16,7 +16,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import CloseIcon from '@mui/icons-material/Close';
 import Logo from '../assets/logo.png'
-import type { NavbarProps, NavItem } from '../types/types';
+import type { NavbarProps, NavItem } from '../types/sylvia/types';
 
 
 
@@ -32,7 +32,7 @@ export default function Navbar({ links = defaultLinks, user = null, onSearch }: 
   const [searchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState('');
 
-  
+
   return (
     <header className="w-full bg-white fixed left-0 top-0">
       <div className="max-w-6xl mx-auto p-4 sm:px-6 lg:px-8">
@@ -41,16 +41,16 @@ export default function Navbar({ links = defaultLinks, user = null, onSearch }: 
           <div className="flex items-center gap-5 justify-start max-sm:justify-center">
 
             {/* Mobile menu button */}
-             <IconButton aria-label="open menu" 
-             onClick={() => setMobileOpen(true)} 
-             className="md:hidden" 
-             size="large">
+            <IconButton aria-label="open menu"
+              onClick={() => setMobileOpen(true)}
+              className="md:hidden"
+              size="large">
               <MenuIcon />
             </IconButton>
 
 
             <NavLink to="/" className="flex flex-col items-center justify-center gap-1 no-underline">
-            
+
               <img src={Logo} alt="Logo" className="w-8 h-8 rounded-full" />
               <span className="text-sky-600 font-semibold text-sm">Safarni</span>
             </NavLink>
@@ -64,7 +64,7 @@ export default function Navbar({ links = defaultLinks, user = null, onSearch }: 
                       to={l.to}
                       className={({ isActive }) =>
                         `text-md ${isActive ? 'text font-bold text-black' : 'font-semibold text-black hover:text-sky-600'} no-underline`
-                    }
+                      }
                     >
                       {l.label}
                     </NavLink>
@@ -74,7 +74,7 @@ export default function Navbar({ links = defaultLinks, user = null, onSearch }: 
             </nav>
 
 
-            </div>
+          </div>
 
           <div className="flex items-center gap-2  justify-end max-sm:justify-center">
             <IconButton aria-label="search" onClick={() => setSearchOpen((s) => !s)} size="large">
@@ -86,9 +86,9 @@ export default function Navbar({ links = defaultLinks, user = null, onSearch }: 
             </IconButton>
 
 
-            
 
-              {/* avatar */}
+
+            {/* avatar */}
             <div className="ml-1">
               {user?.avatarUrl ? (
                 <Avatar alt={user.name} src={user.avatarUrl} sx={{ width: 32, height: 32 }} />
@@ -100,7 +100,7 @@ export default function Navbar({ links = defaultLinks, user = null, onSearch }: 
 
 
 
-          
+
         </div>
       </div>
 
@@ -109,7 +109,7 @@ export default function Navbar({ links = defaultLinks, user = null, onSearch }: 
         <Box className="w-64" role="presentation">
           <div className="flex items-center justify-between px-4 py-3 border-b">
             <div className="flex items-center gap-2">
-            
+
               <img src={Logo} alt="Logo" className="w-8 h-8 rounded-full" />
               <span className="text-sky-600 font-semibold">Safarni</span>
             </div>
