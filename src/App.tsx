@@ -49,11 +49,14 @@ function App() {
       <main>
         <Routes>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
           <Route path="/" />
           <Route path="/favorite" />
           <Route path="/compare" />
           <Route path="/maps" />
 =======
+=======
+>>>>>>> Stashed changes
           {/* <Route path="/" element={<SignupPage />} /> */}
           <Route element={<Layout />}>
             <Route path="/profile" element={<Profile />} />

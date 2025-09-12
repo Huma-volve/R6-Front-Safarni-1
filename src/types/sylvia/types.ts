@@ -2,6 +2,7 @@
 
 export type NavItem = {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   label: string;
   to: string;
 };
@@ -19,6 +20,8 @@ export interface NavbarProps {
 
 
 =======
+=======
+>>>>>>> Stashed changes
     label: string;
     to: string;
 };
@@ -30,4 +33,7 @@ export interface NavbarProps {
 }
 
   // checkouts 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
