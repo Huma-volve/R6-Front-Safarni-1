@@ -31,3 +31,16 @@ export type TrendingToursResponse = {
   is_recommended: boolean;
   is_favourite: boolean;
 };
+
+export type SearchToursResponse = {
+  id: number;
+  title: string;
+  location: string;
+  image: string | undefined;
+  rating: string;
+  description: string;
+  price: string;
+  views: number;
+  is_recommended: boolean;
+  is_favourite: boolean;
+};

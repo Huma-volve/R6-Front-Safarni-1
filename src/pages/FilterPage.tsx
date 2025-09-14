@@ -29,14 +29,22 @@ export default function FilterPage() {
   const [activeRating, setActiveRating] = useState<number[]>([]);
   const [priceRange, setPriceRange] = useState<number[]>([0, 8500]);
   const [query, setQuery] = useState("");
-  // const params = new URLSearchParams();
+  //const params = new URLSearchParams();
 
   // const [activeSelectText, setActiveSelectText] = useState("");
   const navigate = useNavigate();
+  // const Payload = {
+  //   max_price: priceRange[1] - priceRange[0],
+  //   location: query,
+  //   min_rating: 1,
+  // };
   function handleSubmit() {
     const url = createURL({ priceRange, query });
-    console.log(url);
-    navigate("/tours${url}");
+    // console.log(url);
+    // params.append("location", Payload.location);
+    // params.append("min_rating", String(Payload.min_rating));
+    // params.append("max_price", String(Payload.max_price));
+    navigate(`/tours${url}`);
   }
 
   const filterArray = [
