@@ -21,16 +21,17 @@ import Destination from "./pages/Destination/Destination";
 // import Checkout from "./pages/Checkout/Checkout";
 // import Payment from "./pages/Checkout/Payment";
 // import Success from "./pages/Checkout/Success";
-// import WelcomePage from "./pages/Auth/WelcomePage";
-// import SignupPage from "./pages/Auth/SignupPage";
-// import LoginPage from "./pages/Auth/LoginPage";
-// import ForgetPasswordPage from "./pages/Auth/ForgetPasswordPage";
-// import VerifyCodePage from "./pages/Auth/VerifyCodePage";
-// import NewPasswordPage from "./pages/Auth/NewPasswordPage";
-// import PasswordResetPage from "./pages/Auth/PasswordResetPage";
-// import HomePage from "./pages/Auth/HomePage";
-// import SearchPage from "./pages/Auth/SearchPage";
-
+import WelcomePage from "./pages/Auth/WelcomePage";
+import SignupPage from "./pages/Auth/SignupPage";
+import LoginPage from "./pages/Auth/LoginPage";
+import ForgetPasswordPage from "./pages/Auth/ForgetPasswordPage";
+import VerifyCodePage from "./pages/Auth/VerifyCodePage";
+import NewPasswordPage from "./pages/Auth/NewPasswordPage";
+import PasswordResetPage from "./pages/Auth/PasswordResetPage";
+import HomePage from "./pages/SearchTours/HomePage";
+import SearchPage from "./pages/SearchTours/SearchPage";
+import FilterPage from "./pages/SearchTours/FilterPage";
+import ToursPage from "./pages/SearchTours/ToursPage";
 function App() {
   const queryClient = new QueryClient();
 
@@ -38,7 +39,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Routes>
-          {/* <Route path="/" element={<SignupPage />} /> */}
+          <Route path="/signup" element={<SignupPage />} />
           <Route element={<Layout />}>
             <Route path="/" element={<Profile />} /> 
             <Route path="/profile" element={<Profile />} />
@@ -54,21 +55,22 @@ function App() {
             <Route path="/destination/:id" element={<Destination />} />
             <Route path="/hotel-booking" element={<HotelBooking />} />
             <Route path="/hotel-review/:id" element={<HotelReview />} />
-            {/* <Route path="/home" element={<Home />} />
-            <Route path="/maps" element={<Map />} />
+            {/* <Route path="/maps" element={<Map />} />
             <Route path="/tours" element={<Tour />} />
             <Route path="/checkout" element={<Checkout />}>
               <Route index element={<Payment />} />
               <Route path="success" element={<Success />} />
-            </Route>
-            <Route path="/welcome" element={<WelcomePage />} />
+            </Route> */}
+            <Route path="/" element={<WelcomePage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/forget-password" element={<ForgetPasswordPage />} />
             <Route path="/verify-code" element={<VerifyCodePage />} />
             <Route path="/new-password" element={<NewPasswordPage />} />
             <Route path="/password-reset" element={<PasswordResetPage />} />
-            <Route path="/auth-home" element={<HomePage />} />
-            <Route path="/search" element={<SearchPage />} /> */}
+            <Route path="/home" element={<HomePage />} />
+            <Route path="/search" element={<SearchPage />} />
+            <Route path="/filter" element={<FilterPage />}></Route>
+            <Route path="/tours" element={<ToursPage />}></Route>
           </Route>
         </Routes>
       </BrowserRouter>

@@ -7,14 +7,17 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import AirIcon from "@mui/icons-material/Air";
 import PeopleIcon from "@mui/icons-material/People";
 import car from "../../assets/images/e744f4cf979ec01abb63356b5a84a958a241a35d.png";
+
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+
 import type { Car } from "../../types/CarBooking/CarTypes";
-import {
-  fetchCarDetails,
-  calculateHourlyRate,
-  pickUpCar,
-} from "../../types/CarBooking/CarTypes";
+
+// API functions
+import { fetchCarDetails, pickUpCar } from "../../api/Booking/CarBooking";
+
+// Utilities
+import { calculateHourlyRate } from "../../types/CarBooking/CarTypes";
 
 const CarDetailsApp = () => {
   const params = useParams<{ id: string }>();

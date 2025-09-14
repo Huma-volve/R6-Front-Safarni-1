@@ -5,10 +5,9 @@ import logo from "../../assets/images/download.png";
 import carImage from "../../assets/images/download (1).jpeg";
 import { Link } from "react-router-dom";
 import type { Car, BrandCount } from "../../types/CarBooking/CarTypes";
+import { fetchCarsData, pickUpCar } from "../../api/Booking/CarBooking";
 import {
-  fetchCarsData,
   calculateBrands,
-  pickUpCar,
   filterCarsBySearch,
   filterCarsByBrand,
 } from "../../types/CarBooking/CarTypes";

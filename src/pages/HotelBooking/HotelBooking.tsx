@@ -2,7 +2,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import StarIcon from "@mui/icons-material/Star";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { fetchHotels } from "../../types/HotelTypes/HotelTypes";
+import { fetchHotels } from "../../api/Booking/HotelsBooking";
 import type { Hotel } from "../../types/HotelTypes/HotelTypes";
 
 const HotelsApp = () => {
