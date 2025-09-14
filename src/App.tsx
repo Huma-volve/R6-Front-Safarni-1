@@ -2,8 +2,7 @@ import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-import Layout from "./components/Layout/Layout";
-import { PaymentProvider } from "./context/CheckoutContext";
+import Layout from "./components/layout/Layout";
 
 // Profile pages
 import Profile from "./pages/Profile/Profile";
@@ -14,7 +13,7 @@ import AppLanguage from "./pages/Profile/AppLanguage/AppLanguage";
 
 // Other feature pages
 import Favorites from "./pages/Favorite/Favorite";
-import Compare from "./pages/Compare/Compare";
+import Compare from "./pages/";
 import CarBooking from "./pages/CarBooking/CarBooking";
 import CarDetails from "./pages/CarBooking/CarDetails";
 import CarMap from "./pages/CarBooking/CarMaping";
@@ -48,61 +47,42 @@ function App() {
   const queryClient = new QueryClient();
 
   return (
-    <PaymentProvider>
-      <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
-          <Routes>
-            {/* Auth */}
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/signup" element={<SignupPage />} />
+          <Route element={<Layout />}>
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/personal-info" element={<PersonalInfo />} />
+            <Route path="/account-security" element={<AccountSecurity />} />
+            <Route path="/my-booking" element={<MyBooking />} />
+            <Route path="/app-language" element={<AppLanguage />} />
+            <Route path="/favorite" element={<Favorites />} />
+            {/* <Route path="/compare" element={<Compare />} /> */}
+            <Route path="/car-booking" element={<CarBooking />} />
+            <Route path="/car-details/:id" element={<CarDetails />} />
+            <Route path="/car-map" element={<CarMap />} />
+            <Route path="/destination/:id" element={<Destination />} />
+            <Route path="/hotel-booking" element={<HotelBooking />} />
+            <Route path="/hotel-review/:id" element={<HotelReview />} />
+            <Route path="/maps" element={<Map />} />
+            <Route path="/tours" element={<Tour />} />
+            <Route path="/checkout" element={<Checkout />}/>
+            <Route path="/checkout/success" element={<Success />} />
             <Route path="/" element={<WelcomePage />} />
-            <Route path="/signup" element={<SignupPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/forget-password" element={<ForgetPasswordPage />} />
             <Route path="/verify-code" element={<VerifyCodePage />} />
             <Route path="/new-password" element={<NewPasswordPage />} />
             <Route path="/password-reset" element={<PasswordResetPage />} />
-
-            {/* Main app (with layout) */}
-            <Route element={<Layout />}>
-              {/* Profile */}
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/personal-info" element={<PersonalInfo />} />
-              <Route path="/account-security" element={<AccountSecurity />} />
-              <Route path="/my-booking" element={<MyBooking />} />
-              <Route path="/app-language" element={<AppLanguage />} />
-
-              {/* Features */}
-              <Route path="/favorite" element={<Favorites />} />
-              <Route path="/compare" element={<Compare />} />
-
-              {/* Car booking */}
-              <Route path="/car-booking" element={<CarBooking />} />
-              <Route path="/car-details/:id" element={<CarDetails />} />
-              <Route path="/car-map" element={<CarMap />} />
-
-              {/* Hotel booking */}
-              <Route path="/hotel-booking" element={<HotelBooking />} />
-              <Route path="/hotel-review/:id" element={<HotelReview />} />
-              <Route path="/destination/:id" element={<Destination />} />
-
-              {/* Other sections */}
-              <Route path="/home" element={<Home />} />
-              <Route path="/maps" element={<Map />} />
-              <Route path="/tours" element={<Tour />} />
-
-              {/* Checkout */}
-              <Route path="/checkout" element={<Checkout />} />
-              <Route path="/checkout/success" element={<Success />} />
-
-              {/* Search Tours */}
-              <Route path="/auth-home" element={<HomePage />} />
-              <Route path="/search" element={<SearchPage />} />
-              <Route path="/filter" element={<FilterPage />} />
-              <Route path="/tours-page" element={<ToursPage />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
-      </QueryClientProvider>
-    </PaymentProvider>
+            <Route path="/home" element={<HomePage />} />
+            <Route path="/search" element={<SearchPage />} />
+            <Route path="/filter" element={<FilterPage />}></Route>
+            <Route path="/tours" element={<ToursPage />}></Route>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </QueryClientProvider>
   );
 }
 
