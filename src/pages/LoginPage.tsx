@@ -1,0 +1,26 @@
+import { useNavigate } from "react-router-dom";
+import loginImage from "../assets/phone-log-img.png";
+import LoginForm from "../components/Auth/LoginForm";
+import BackButton from "../components/BackButton";
+import Logo from "../components/Logo";
+export default function LoginPage() {
+  const navigate = useNavigate();
+  return (
+    <>
+      <Logo className="hidden md:flex flex-row md:justify-end justify-center " />
+      <div className=" flex justify-center items-center">
+        <div className="flex flex-col justify-start items-start w-[510px] h-[470px]  rounded-[30px] gap-[10px]">
+          <BackButton
+            className="z-1 w-[45px] h-[55px] rounded-full p-[10px]  bg-[#F3F4F6] hidden md:flex items-center justify-center"
+            onClick={() => navigate(-1)}
+          />
+          <div className="hidden md:flex items-center justify-center bg-[#F4F4F4] w-[510px] h-[470px]  rounded-[30px]">
+            <img src={loginImage} alt="login-image" />
+          </div>
+        </div>
+
+        <LoginForm />
+      </div>
+    </>
+  );
+}

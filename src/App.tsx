@@ -29,7 +29,8 @@ import NewPasswordPage from "./pages/Auth/NewPasswordPage";
 import PasswordResetPage from "./pages/Auth/PasswordResetPage";
 import HomePage from "./pages/Auth/HomePage";
 import SearchPage from "./pages/Auth/SearchPage";
-
+import FilterPage from "./pages/FilterPage";
+import ToursPage from "./pages/ToursPage";
 function App() {
   const queryClient = new QueryClient();
 
@@ -66,6 +67,8 @@ function App() {
             <Route path="/password-reset" element={<PasswordResetPage />} />
             <Route path="/auth-home" element={<HomePage />} />
             <Route path="/search" element={<SearchPage />} />
+            <Route path="/filter" element={<FilterPage />}></Route>
+          <Route path="/tours" element={<ToursPage />}></Route>
           </Route>
         </Routes>
       </BrowserRouter>
