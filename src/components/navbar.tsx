@@ -125,7 +125,7 @@ export default function Navbar({ links = defaultLinks, user = null }: NavbarProp
             ))}
           </List>
 
-          <Divider />
+          {/* <Divider /> */}
 
           <List>
             <ListItem disablePadding>
