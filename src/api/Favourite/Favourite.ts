@@ -1,4 +1,4 @@
-import type { FavoriteData } from "../../types/types";
+import type { FavoriteData } from "../../types/Khaled/Fav/types";
 
 type Data = {
   data: FavoriteData[]

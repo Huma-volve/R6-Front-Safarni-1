@@ -3,10 +3,10 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import getAllFavorites from "../../api/Favourite/Favourite";
 import { useQuery } from "@tanstack/react-query";
-import type { FavoriteData } from "../../types/types";
+import type { FavoriteData } from "../../types/Khaled/Fav/types";
 import Loading from "../../components/Loading/Loading";
 import StarRateRoundedIcon from "@mui/icons-material/StarRateRounded";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 type FavoritesResponse = {
@@ -14,6 +14,7 @@ type FavoritesResponse = {
 };
 
 const Favorites = () => {
+
   const navigate = useNavigate();
   const { isLoading, error, data } = useQuery<FavoritesResponse>({
     queryKey: ["favorites"],
@@ -60,6 +61,7 @@ const Favorites = () => {
 
       <div className="w-[80%] mx-auto grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {favorites.map((item) => (
+          <Link to={`/destination/${item.id}`}>
           <div
             key={item.id}
             className="bg-white rounded-2xl shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-300 relative overflow-hidden"
@@ -106,6 +108,7 @@ const Favorites = () => {
               </p>
             </div>
           </div>
+          </Link>
         ))}
       </div>
     </div>

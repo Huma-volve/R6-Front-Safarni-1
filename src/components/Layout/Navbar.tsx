@@ -15,7 +15,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import CloseIcon from '@mui/icons-material/Close';
-import Logo from '../assets/logo.png'
+import Logo from '../../assets/images/download (1).jpeg'
 import type { NavbarProps, NavItem } from '../../types/sylvia/types';
 
 
@@ -31,7 +31,8 @@ export default function Navbar({ links = defaultLinks, user = null, onSearch }: 
   const [searchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState('');
 
-  
+  console.log("user" , user);
+
   return (
     <header className="w-full bg-white fixed left-0 top-0">
       <div className="max-w-6xl mx-auto p-4 sm:px-6 lg:px-8">
@@ -39,7 +40,6 @@ export default function Navbar({ links = defaultLinks, user = null, onSearch }: 
 
           <div className="flex items-center gap-5 justify-start max-sm:justify-center">
 
-            {/* Mobile menu button */}
              <IconButton aria-label="open menu" 
              onClick={() => setMobileOpen(true)} 
              className="md:hidden" 
@@ -71,8 +71,6 @@ export default function Navbar({ links = defaultLinks, user = null, onSearch }: 
                 ))}
               </ul>
             </nav>
-
-
             </div>
 
           <div className="flex items-center gap-2  justify-end max-sm:justify-center">
@@ -85,9 +83,6 @@ export default function Navbar({ links = defaultLinks, user = null, onSearch }: 
             </IconButton>
 
 
-            
-
-              {/* avatar */}
             <div className="ml-1">
               {user?.avatarUrl ? (
                 <Avatar alt={user.name} src={user.avatarUrl} sx={{ width: 32, height: 32 }} />
@@ -97,9 +92,6 @@ export default function Navbar({ links = defaultLinks, user = null, onSearch }: 
             </div>
           </div>
 
-
-
-          
         </div>
       </div>
 

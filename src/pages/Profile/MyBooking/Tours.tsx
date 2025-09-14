@@ -1,7 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { getAllTours } from "../../../api/Booking/Tours";
-import type { TourData } from "../../../types/types";
+import type { TourData } from "../../../types/Khaled/Fav/types";
 import Loading from "../../../components/Loading/Loading";
+import { Star } from "@mui/icons-material";
+import defaultTour from "../../../assets/images/hotel1.jpg";
 
 const Tours = () => {
   const { isLoading, error, data } = useQuery({
@@ -30,12 +32,12 @@ const Tours = () => {
           className="flex items-center gap-4 rounded-xl border border-gray-200 bg-white shadow-sm p-3"
         >
           <img
-            src={item.image || "https://via.placeholder.com/100"}
+            src={item.image || defaultTour}
             alt={item.name}
             className="w-28 h-24 rounded-lg object-cover"
           />
           <div className="flex-1">
-            <p className="text-sm text-gray-500">{item.type || "Full Day Tour"}</p>
+            <p className="text-sm text-gray-500">{item.id || "Full Day Tour"}</p>
             <h2 className="text-lg font-semibold">{item.name || "Luxor"}</h2>
             <p className="text-sm text-gray-600">
               From{" "}
@@ -49,7 +51,7 @@ const Tours = () => {
           <div className="flex items-center text-yellow-500">
             <Star className="w-5 h-5 fill-yellow-500" />
             <span className="ml-1 text-sm font-medium text-black">
-              {item.rating || 4.3}
+              {item.id || 4.3}
             </span>
           </div>
         </div>

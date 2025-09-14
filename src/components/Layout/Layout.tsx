@@ -3,7 +3,7 @@ import Navbar from "./Navbar"
 
 const Layout = () => {
   return<>
-  <div className="min-h-screen flex flex-col w-full">
+  <div className="flex flex-col w-full">
 
 <Navbar user={{ name: 'Sarah', avatarUrl: 'https://i.pravatar.cc/40' }} />
 

@@ -17,7 +17,7 @@ function click (name : string) {
   if(name === "Personal Information") {
     navigate("/personal-info");
   }else if(name === "MyBooking") {
-    navigate("/MyBooking");
+    navigate("/my-booking");
   }else if(name === "Account & Security") {
     navigate("/account-security");
   }
