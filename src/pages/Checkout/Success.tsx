@@ -1,14 +1,64 @@
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { useContext } from "react";
+import successIcon from "../../assets/successLogo.png"
+import { Button, Stack, Typography } from "@mui/material";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import { useNavigate } from "react-router-dom";
+import CheckoutContext from "../../context/CheckoutContext";
 
-export default function Success() {
+export default function PaymentSuccessPage() {
+  const navigate = useNavigate();
+  const ctx = useContext(CheckoutContext);
+  if (!ctx) throw new Error("Must be used inside PaymentProvider");
+  const { lastPayment } = ctx;
+
+  useEffect(() => {
+    if (!lastPayment) navigate("/checkout", { replace: true });
+  }, [lastPayment, navigate]);
+
+  if (!lastPayment) return null;
+
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <div className="text-green-500 text-5xl mb-4">✔</div>
-      <h1 className="text-xl font-bold">Payment Successful!</h1>
-      <p className="mb-4">Thank you for your trust</p>
-      <Link to="/" className="px-4 py-2 bg-blue-600 rounded text-white">
-        Back to Home
-      </Link>
+    <div className="px-6 md:px-10 lg:px-16 py-8 md:h-120">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="lg:col-span-5">
+          <div className="rounded-2xl md:h-120 w-full bg-gray-100 flex items-center justify-center">
+            <img
+              src={successIcon}
+              alt="success"
+              className="h-104 w-auto object-contain"
+            />
+          </div>
+        </div>
+
+        <div className="lg:col-span-7">
+          <div className="rounded-2xl p-8 bg-white text-center">
+            <div className="flex items-center justify-center mb-3">
+              <CheckCircleIcon color="success" sx={{ fontSize: 40 }} />
+            </div>
+            <Typography variant="h5" className="my-4 ">
+              Payment Successful!
+            </Typography>
+            <Typography variant="body2" className="text-gray-500 mb-6">
+              Thank you for your trust.
+            </Typography>
+
+            <Stack direction="row" spacing={1.5} className="justify-center mb-6">
+              {/* <Chip label={`Method: ${lastPayment.method}`} color="primary" variant="outlined" /> */}
+              {/* <Chip label={lastPayment.fullName} variant="outlined" /> */}
+              {/* <Chip label={lastPayment.email} variant="outlined" /> */}
+            </Stack>
+
+            <Button
+              variant="contained"
+              size="large"
+              onClick={() => navigate("/")}
+            >
+              Back To Home
+            </Button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

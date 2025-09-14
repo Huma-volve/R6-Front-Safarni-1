@@ -1,14 +1,33 @@
-import { createContext } from "react";
-import type { CheckoutResponse } from "../types/sylvia/checkout";
+import React, { createContext, useState } from "react";
 
-export interface CheckoutContextType {
-  bookingId: number | null;
-  bookingType: string | null;
-  paymentInfo: CheckoutResponse | null; // فيه payment_id + client_secret
-  paymentMethod: string | null;
-  setBooking: (id: number, type: string) => void;
-  setPaymentInfo: (info: CheckoutResponse) => void;
-  setMethod: (method: string) => void;
+export type PaymentMethod = "paypal" | "mastercard" | "visa";
+
+export interface PaymentFormValues {
+  method: PaymentMethod;
+  fullName: string;
+  email: string;
+  cardNumber?: string;
+  expiry?: string;
+  cvv?: string;
 }
 
-export const CheckoutContext = createContext<CheckoutContextType | undefined>(undefined);
+interface Ctx {
+  lastPayment: PaymentFormValues | null;
+  setLastPayment: (d: PaymentFormValues | null) => void;
+}
+
+const CheckoutContext = createContext<Ctx | undefined>(undefined);
+
+export const PaymentProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [lastPayment, setLastPayment] = useState<PaymentFormValues | null>(null);
+  return (
+    <CheckoutContext.Provider value={{ lastPayment, setLastPayment }}>
+      {children}
+    </CheckoutContext.Provider>
+  );
+};
+
+// export const usePayment = () => useContext(CheckoutContext)!;
+
+
+export default CheckoutContext
