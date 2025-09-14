@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
 
 @font-face {
     font-family: "Poppins";
@@ -39,8 +40,6 @@ body {
     font-family: "Poppins", sans-serif;
 }
 
-
-
 /* Mobile-specific styles */
 .scrollbar-hide {
     -ms-overflow-style: none;
@@ -50,7 +49,6 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
     display: none;
 }
-
 
 /* Mobile viewport adjustments */
 @supports (-webkit-touch-callout: none) {
