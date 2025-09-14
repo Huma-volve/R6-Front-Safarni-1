@@ -1,7 +1,7 @@
-import BackButton from "../components/BackButton";
-import lockImage from "../assets/lock-img.png";
-import Logo from "../components/Logo";
-import ForgetPasswordForm from "../components/Auth/ForgetPasswordForm";
+import BackButton from "../../components/BackButton";
+import lockImage from "../../assets/lock-img.png";
+import Logo from "../../components/Logo";
+import ForgetPasswordForm from "../../components/Auth/ForgetPasswordForm";
 import { useNavigate } from "react-router-dom";
 export default function ForgetPasswordPage() {
   const navigate = useNavigate();

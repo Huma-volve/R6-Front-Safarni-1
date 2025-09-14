@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import Logo from "../components/Logo";
-import BackButton from "../components/BackButton";
-import loginImage from "../assets/phone-log-img.png";
-import VerifyCodeForm from "../components/Auth/VerifyCodeForm";
+import Logo from "../../components/Logo";
+import BackButton from "../../components/BackButton";
+import loginImage from "../../assets/phone-log-img.png";
+import VerifyCodeForm from "../../components/Auth/VerifyCodeForm";
 export default function VerifyCodePage() {
   const navigate = useNavigate();
   return (

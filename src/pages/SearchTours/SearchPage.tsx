@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import BackButton from "../components/BackButton";
+import BackButton from "../../components/BackButton";
 import Input from "@mui/material/Input";
 import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";

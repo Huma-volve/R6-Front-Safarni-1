@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import loginImage from "../assets/phone-log-img.png";
-import LoginForm from "../components/Auth/LoginForm";
-import BackButton from "../components/BackButton";
-import Logo from "../components/Logo";
+import loginImage from "../../assets/phone-log-img.png";
+import LoginForm from "../../components/Auth/LoginForm";
+import BackButton from "../../components/BackButton";
+import Logo from "../../components/Logo";
 export default function LoginPage() {
   const navigate = useNavigate();
   return (

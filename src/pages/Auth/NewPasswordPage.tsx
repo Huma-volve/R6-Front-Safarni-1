@@ -1,8 +1,8 @@
-import BackButton from "../components/BackButton";
-import lockImage from "../assets/lock-img.png";
-import Logo from "../components/Logo";
+import BackButton from "../../components/BackButton";
+import lockImage from "../../assets/lock-img.png";
+import Logo from "../../components/Logo";
 import { useNavigate } from "react-router-dom";
-import NewPasswordForm from "../components/Auth/NewPasswordForm";
+import NewPasswordForm from "../../components/Auth/NewPasswordForm";
 export default function NewPasswordPage() {
   const navigate = useNavigate();
   return (

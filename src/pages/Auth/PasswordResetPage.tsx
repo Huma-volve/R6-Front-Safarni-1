@@ -1,6 +1,6 @@
-import successImage from "../assets/success-img.png";
+import successImage from "../../assets/success-img.png";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import Logo from "../components/Logo";
+import Logo from "../../components/Logo";
 import { useNavigate } from "react-router-dom";
 
 export default function PasswordResetPage() {

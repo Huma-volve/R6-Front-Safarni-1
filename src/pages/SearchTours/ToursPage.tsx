@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Heart } from "lucide-react";
 import { StarIcon } from "@heroicons/react/24/outline";
-import { useFilteredSearch } from "../hooks/useFilteredSearch";
+import { useFilteredSearch } from "../../hooks/useFilteredSearch";
 import { useLocation, useNavigate } from "react-router-dom";
-import BackButton from "../components/BackButton";
+import BackButton from "../../components/BackButton";
 
 const TOURS_PER_SLIDE = 4;
 export default function AvailableTour() {

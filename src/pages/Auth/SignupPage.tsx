@@ -1,7 +1,7 @@
-import SignupForm from "../components/Auth/SignupForm";
-import Logo from "../components/Logo";
-import signupImage from "../assets/phone-sign-img.png";
-import BackButton from "../components/BackButton";
+import SignupForm from "../../components/Auth/SignupForm";
+import Logo from "../../components/Logo";
+import signupImage from "../../assets/phone-sign-img.png";
+import BackButton from "../../components/BackButton";
 import { useNavigate } from "react-router-dom";
 export default function SignupPage() {
   const navigate = useNavigate();

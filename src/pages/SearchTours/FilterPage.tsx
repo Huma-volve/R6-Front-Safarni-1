@@ -1,15 +1,15 @@
 import { useNavigate } from "react-router-dom";
-import BackButton from "../components/BackButton";
+import BackButton from "../../components/BackButton";
 import { useState } from "react";
 import Input from "@mui/material/Input";
 import SearchIcon from "@mui/icons-material/Search";
 import { StarIcon } from "@heroicons/react/24/outline";
-import Image1 from "../assets/adventure.png";
-import Image2 from "../assets/city.png";
-import Image3 from "../assets/water.png";
-import Image4 from "../assets/travel.png";
+import Image1 from "../../assets/adventure.png";
+import Image2 from "../../assets/city.png";
+import Image3 from "../../assets/water.png";
+import Image4 from "../../assets/travel.png";
 import Slider from "@mui/material/Slider";
-import ChartImage from "../assets/chart-img.png";
+import ChartImage from "../../assets/chart-img.png";
 type createURLParams = {
   priceRange: number[];
   query: string;
