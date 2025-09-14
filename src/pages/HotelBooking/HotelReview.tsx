@@ -7,20 +7,27 @@ import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import SearchIcon from "@mui/icons-material/Search";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
+
 import hotelImage from "../../assets/images/hotel3.jpg";
 import person from "../../assets/images/person1.jpg";
+
+// API functions
 import {
   fetchRoomDetails,
   fetchRoomsAvailability,
   fetchReviews,
   submitReview,
   bookRoom,
+} from "../../api/Booking/HotelsBooking";
+
+import {
   formatDate,
   calculateNights,
   calculateTotalPrice,
   getGalleryImages,
 } from "../../types/HotelTypes/HotelTypes";
 
+// Types
 import type {
   Room,
   Review,
