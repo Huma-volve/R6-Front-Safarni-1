@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import Layout from "./components/Layout/Layout";
+import { PaymentProvider } from "./context/CheckoutContext";
 
 // Profile pages
 import Profile from "./pages/Profile/Profile";
@@ -19,6 +20,7 @@ import CarDetails from "./pages/CarBooking/CarDetails";
 import CarMap from "./pages/CarBooking/CarMaping";
 import HotelBooking from "./pages/HotelBooking/HotelBooking";
 import HotelReview from "./pages/HotelBooking/HotelReview";
+import Destination from "./pages/Destination/Destination";
 import Home from "./pages/Home/Home";
 import Map from "./pages/Map/Map";
 import Tour from "./pages/Tours/Tours";
@@ -26,7 +28,6 @@ import Tour from "./pages/Tours/Tours";
 // Checkout
 import Checkout from "./pages/Checkout/Checkout";
 import Success from "./pages/Checkout/Success";
-import { PaymentProvider } from "./context/CheckoutContext";
 
 // Auth pages
 import WelcomePage from "./pages/Auth/WelcomePage";
@@ -52,8 +53,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             {/* Auth */}
-            <Route path="/" element={<SignupPage />} />
-            <Route path="/welcome" element={<WelcomePage />} />
+            <Route path="/" element={<WelcomePage />} />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/forget-password" element={<ForgetPasswordPage />} />
@@ -61,7 +61,7 @@ function App() {
             <Route path="/new-password" element={<NewPasswordPage />} />
             <Route path="/password-reset" element={<PasswordResetPage />} />
 
-            {/* Protected / main layout pages */}
+            {/* Main app (with layout) */}
             <Route element={<Layout />}>
               {/* Profile */}
               <Route path="/profile" element={<Profile />} />
@@ -82,6 +82,7 @@ function App() {
               {/* Hotel booking */}
               <Route path="/hotel-booking" element={<HotelBooking />} />
               <Route path="/hotel-review/:id" element={<HotelReview />} />
+              <Route path="/destination/:id" element={<Destination />} />
 
               {/* Other sections */}
               <Route path="/home" element={<Home />} />

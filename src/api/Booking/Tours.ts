@@ -5,14 +5,14 @@ type Data = {
 };
 
 export async function getAllTours(): Promise<Data> {
+  const token = localStorage.getItem("authToken");
   return await fetch(
     "https://round5-safarnia.huma-volve.com/api/my-tour-bookings",
     {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization:
-          "Bearer AcF8WHbQ6KJCA7P0vIV9D5bZswy6Kc4j20Gx00fXd7c1170b",
+        Authorization: `Bearer ${token}`,
       },
     }
   )

@@ -1,16 +1,17 @@
-import type { FavoriteData } from "../../types/types";
+import type { FavoriteData } from "../../types/Khaled/Fav/types";
 
 type Data = {
   data: FavoriteData[]
 }
 
 export default async function getAllFavorites(): Promise<Data> {
+  const token = localStorage.getItem("authToken");
   return await fetch("https://round5-safarnia.huma-volve.com/api/favorites", {
     method: "GET",
     headers: {
-      "Authorization": "Bearer 38|fSdtjlVDoNAG630qkSCli05PL06AG64UMkQ7uVmHde778a55",
-      "Accept": "application/json"
-    }
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
   })
     .then(async (res) => {
       const data = await res.json();

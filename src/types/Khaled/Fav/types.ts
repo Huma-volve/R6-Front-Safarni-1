@@ -31,6 +31,8 @@ export type FlightData = {
   
   // TourData
   export type TourData = {
+    image: string;
+    name: string | undefined;
     id: number;
     price: number;
   };
@@ -65,5 +67,12 @@ export type FlightData = {
       rating  :number,
       highlights : string,
       min_age : number
+  };
+  
+
+  export type DestinationData = {
+    id: number;
+    description: string;
+    image: string;
   };
   

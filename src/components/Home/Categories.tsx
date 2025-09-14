@@ -3,6 +3,9 @@ import { useCategory } from "../../hooks/useCategory";
 import ArrowBackIosOutlinedIcon from "@mui/icons-material/ArrowBackIosOutlined";
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
 import Image from "../../assets/img.jpg";
+import { NavLink } from "react-router-dom";
+
+
 export default function Categories() {
   const { data, isLoading, error } = useCategory();
   const [page, setPage] = useState(0);
@@ -11,6 +14,9 @@ export default function Categories() {
   if (error) return <p>Error loading items</p>;
   if (!data) return <p>No data!</p>;
   const startIndex = page * CATEGORY_PER_SLIDE;
+
+
+console.log(data);
 
   const visibleCategories = data.slice(
     startIndex,
@@ -35,7 +41,7 @@ export default function Categories() {
             <ArrowBackIosOutlinedIcon />
           </button>
           {visibleCategories.map((category) => (
-            <div className="flex flex-col justify-center items-center">
+            <NavLink to={`/${category.title}`} key={category.id} className="flex flex-col justify-center items-center">
               <img
                 className="md:w-[248px] md:h-[248px] w-[100px] h-[100px]  rounded-full"
                 src={category.image || Image}
@@ -44,7 +50,7 @@ export default function Categories() {
               <h1 className="font-poppins font-medium md:text-3xl text-2xl leading-[100%] tracking-normal text-[#1A56DB]">
                 {category.title}
               </h1>
-            </div>
+            </NavLink>
           ))}
           <button onClick={() => handleNext()}>
             <ArrowForwardIosOutlinedIcon />

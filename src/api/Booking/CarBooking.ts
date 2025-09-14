@@ -3,6 +3,8 @@ import { formatDate } from "../../types/CarBooking/CarTypes";
 
 
 export const fetchCarsData = async (): Promise<Car[]> => {
+
+  const token = localStorage.getItem("authToken");
   try {
     const response = await fetch(
       "https://round5-safarnia.huma-volve.com/api/cars",
@@ -10,8 +12,7 @@ export const fetchCarsData = async (): Promise<Car[]> => {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Authorization:
-            "Bearer AcF8WHbQ6KJCA7P0vIV9D5bZswy6Kc4j20Gx00fXd7c1170b",
+          Authorization: `Bearer ${token}`,
         },
       }
     );
