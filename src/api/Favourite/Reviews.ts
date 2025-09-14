@@ -10,7 +10,7 @@ export type ReviewData = {
   user: {
     id: number;
     name: string;
-    avatar?: string; 
+    avatar?: string;
   };
 };
 
@@ -18,7 +18,6 @@ type ReviewsResponse = {
   status: number;
   message: string;
   data: {
-    [x: string]: never[];
     tour_id: number;
     total_reviews: number;
     reviews: ReviewData[];
@@ -48,7 +47,8 @@ export default async function getAllReviews(
 
     const json: ReviewsResponse = await res.json();
     console.log(json);
-    return { data: json.data || [] };
+
+    return { data: json.data.reviews || [] };
   } catch (err) {
     console.error("Error fetching reviews:", err);
     return { data: [] };
