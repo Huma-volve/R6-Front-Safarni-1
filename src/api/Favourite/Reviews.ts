@@ -28,14 +28,14 @@ type ReviewsResponse = {
 export default async function getAllReviews(
   tourId: number
 ): Promise<{ data: ReviewData[] }> {
+  const token = localStorage.getItem("authToken");
   try {
     const res = await fetch(
       `https://round5-safarnia.huma-volve.com/api/tours/${tourId}/reviews`,
       {
         method: "GET",
         headers: {
-          Authorization:
-            "Bearer AcF8WHbQ6KJCA7P0vIV9D5bZswy6Kc4j20Gx00fXd7c1170b",
+          Authorization: `Bearer ${token}`,
           Accept: "application/json",
         },
       }

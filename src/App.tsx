@@ -41,7 +41,6 @@ function App() {
         <Routes>
           <Route path="/signup" element={<SignupPage />} />
           <Route element={<Layout />}>
-            <Route path="/" element={<Profile />} /> 
             <Route path="/profile" element={<Profile />} />
             <Route path="/personal-info" element={<PersonalInfo />} />
             <Route path="/account-security" element={<AccountSecurity />} />

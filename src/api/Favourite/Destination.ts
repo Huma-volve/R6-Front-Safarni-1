@@ -10,10 +10,11 @@ type Data = {
 
 export default async function getAllDestinations(): Promise<Data> {
   try {
+    const token = localStorage.getItem("authToken");
     const res = await fetch("https://round5-safarnia.huma-volve.com/api/allcategory", {
       method: "GET",
       headers: {
-        Authorization: "Bearer AcF8WHbQ6KJCA7P0vIV9D5bZswy6Kc4j20Gx00fXd7c1170b",
+        Authorization: `Bearer ${token}`,
         Accept: "application/json",
       },
     });

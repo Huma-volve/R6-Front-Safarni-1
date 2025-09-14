@@ -11,7 +11,6 @@ export default function Recommendation() {
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error loading items</p>;
   if (!data) return <p>No data!</p>;
-  console.log(data);
   return (
     <>
       <div className="flex flex-row justify-between">
@@ -28,7 +27,7 @@ export default function Recommendation() {
       <div>
         <div className="flex flex-wrap justify-center gap-8">
           {visibleTours?.map((tour) => (
-            <div className="flex flex-col justify-center items-center w-[286px] h-[373px] rounded-2xl shadow-[0_4px_10px_0_#6F6F6F40]">
+            <div key={tour.id} className="flex flex-col justify-center items-center w-[286px] h-[373px] rounded-2xl shadow-[0_4px_10px_0_#6F6F6F40]">
               <img
                 className="w-[254px] h-[262px] rounded-[8px]"
                 src={tour.image}
