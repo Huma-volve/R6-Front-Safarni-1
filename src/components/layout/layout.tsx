@@ -4,10 +4,12 @@ import { Navbar } from "../Navbar/Navbar";
 const Layout = () => {
   return (
     <>
-      <div className="container mx-auto px-4">
+      <div className="min-h-screen flex flex-col w-full">
         <Navbar />
+        <div className="container mx-auto">
+          <Outlet />
+        </div>
       </div>
-      <Outlet />
     </>
   );
 };
