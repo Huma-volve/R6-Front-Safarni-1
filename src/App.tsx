@@ -15,7 +15,6 @@ import CarMap from "./pages/CarBooking/CarMaping";
 import HotelBooking from "./pages/HotelBooking/HotelBooking";
 import HotelReview from "./pages/HotelBooking/HotelReview";
 import Destination from "./pages/Destination/Destination";
-// import Home from "./pages/Home/Home";
 // import Map from "./pages/Map/Map";
 // import Tour from "./pages/Tours/Tours";
 // import Checkout from "./pages/Checkout/Checkout";
@@ -32,6 +31,7 @@ import HomePage from "./pages/SearchTours/HomePage";
 import SearchPage from "./pages/SearchTours/SearchPage";
 import FilterPage from "./pages/SearchTours/FilterPage";
 import ToursPage from "./pages/SearchTours/ToursPage";
+
 function App() {
   const queryClient = new QueryClient();
 
@@ -39,7 +39,9 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<WelcomePage />} />
           <Route path="/signup" element={<SignupPage />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route element={<Layout />}>
             <Route path="/profile" element={<Profile />} />
             <Route path="/personal-info" element={<PersonalInfo />} />
@@ -58,10 +60,7 @@ function App() {
             <Route path="/tours" element={<Tour />} />
             <Route path="/checkout" element={<Checkout />}>
               <Route index element={<Payment />} />
-              <Route path="success" element={<Success />} />
-            </Route> */}
-            <Route path="/" element={<WelcomePage />} />
-            <Route path="/login" element={<LoginPage />} />
+              <Route path="success" element={<Success />} /> */}
             <Route path="/forget-password" element={<ForgetPasswordPage />} />
             <Route path="/verify-code" element={<VerifyCodePage />} />
             <Route path="/new-password" element={<NewPasswordPage />} />
