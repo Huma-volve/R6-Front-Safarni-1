@@ -1,8 +1,13 @@
 import { NavLink } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
 import { Search, SlidersHorizontal } from "lucide-react";
+import { useAuth } from "../../hooks/useAuth";
 
 export const Navbar = () => {
+  const { authToken } = useAuth();
+
+  if (!authToken) return null;
+
   return (
     <>
       {/* Desktop Navigation Bar */}
@@ -28,7 +33,7 @@ export const Navbar = () => {
         <div className="flex items-center gap-4">
           {/* NavLinks */}
           <nav className="hidden md:flex items-center gap-6 text-2xl text-gray-900 font-medium">
-            <NavLink to={"/"}>Home</NavLink>
+            <NavLink to={"/home"}>Home</NavLink>
             <NavLink to={"/favorite"}>Favorite</NavLink>
             <NavLink to={"/compare"}>Compare</NavLink>
             <NavLink to={"/maps"}>maps</NavLink>

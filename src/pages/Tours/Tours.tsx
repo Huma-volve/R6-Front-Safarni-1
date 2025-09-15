@@ -4,7 +4,8 @@ import { getTours } from "../../api/tours";
 import TourCard from "../../components/TourCard/TourCard";
 import type { Tour } from "../../types/mohamed/types";
 import { useState, useMemo } from "react";
-import { Loading } from "../../components/Loading/Loading";
+import Loading from "../../components/Loading/Loading";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 const Tours = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -29,11 +30,22 @@ const Tours = () => {
 
   return (
     <>
+      <HelmetProvider>
+        <Helmet>
+          <title>Safarni - Tours</title>
+        </Helmet>
+      </HelmetProvider>
       <SearchCompare onSearch={setSearchQuery} formInput={"true"} />
 
       <div className="pt-50 md:pt-60 px-8 md:px-[130px] pb-8 overflow-hidden">
         <div>
-          {isLoading && <Loading />}
+          {isLoading && (
+            <>
+              <div className="h-screen flex items-center justify-center">
+                <Loading />
+              </div>
+            </>
+          )}
 
           {isError && (
             <div className="text-red-600 bg-red-50 border border-red-100 rounded-lg p-4">

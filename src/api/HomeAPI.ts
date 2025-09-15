@@ -42,7 +42,6 @@ export async function allRecommendedTours(): Promise<
       throw new Error(error.message || "Fetch failed");
     }
     const data = await res.json();
-    console.log(data.data);
     return data.data;
   } catch (error) {
     console.log(error);
@@ -64,7 +63,6 @@ export async function allTrendingTours(): Promise<TrendingToursResponse[]> {
       throw new Error(error.message || "Fetch failed");
     }
     const data = await res.json();
-    console.log(data.data);
     return data.data;
   } catch (error) {
     console.log(error);

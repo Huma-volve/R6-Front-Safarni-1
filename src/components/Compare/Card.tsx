@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { getTourSearch } from "../../api/getTourSearch";
 import { Search } from "lucide-react";
-import { Loading } from "../Loading/Loading";
 import { useState } from "react";
 import CompareCard from "./CompareCard";
 import type { Tour } from "../../types/mohamed/types";
+import Loading from "../Loading/Loading";
 
 const Card = ({ searchQuery }: { searchQuery: string }) => {
   const [selectedTour, setSelectedTour] = useState<Tour | null>(null);
@@ -26,7 +26,14 @@ const Card = ({ searchQuery }: { searchQuery: string }) => {
       </div>
     );
   }
-  if (isLoading) return <Loading />;
+  if (isLoading)
+    return (
+      <>
+        <div className="h-screen flex items-center justify-center">
+          <Loading />
+        </div>
+      </>
+    );
 
   if (isError)
     return (
@@ -73,7 +80,6 @@ const Card = ({ searchQuery }: { searchQuery: string }) => {
           </div>
         ))}
       </div>
-      {/* ✅ هنا بنمرر الداتا للـ CompareCard */}
       {selectedTour && <CompareCard tour={selectedTour} />}
     </>
   );
