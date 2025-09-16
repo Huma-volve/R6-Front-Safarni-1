@@ -8,8 +8,8 @@ export default function Categories() {
   const [page, setPage] = useState(0);
   const CATEGORY_PER_SLIDE = 4;
   if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>Error loading items</p>;
-  if (!data) return <p>No data!</p>;
+  if (error) return <p className="text-red-800 font-semibold align-center text-2xl">Error loading items</p>;
+  if (!data) return <p className="text-red-800 font-semibold align-center text-2xl">No data!</p>;
   const startIndex = page * CATEGORY_PER_SLIDE;
 
   const visibleCategories = data.slice(

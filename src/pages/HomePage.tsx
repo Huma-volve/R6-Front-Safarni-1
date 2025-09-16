@@ -5,7 +5,7 @@ import Recommendation from "../components/Home/Recommendation";
 
 export default function homePage() {
   return (
-    <div>
+    <div className="container mx-auto">
       <Landing />
       <Categories />
       <Recommendation />

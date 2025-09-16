@@ -33,17 +33,9 @@ export default function FilterPage() {
 
   // const [activeSelectText, setActiveSelectText] = useState("");
   const navigate = useNavigate();
-  // const Payload = {
-  //   max_price: priceRange[1] - priceRange[0],
-  //   location: query,
-  //   min_rating: 1,
-  // };
+
   function handleSubmit() {
     const url = createURL({ priceRange, query });
-    // console.log(url);
-    // params.append("location", Payload.location);
-    // params.append("min_rating", String(Payload.min_rating));
-    // params.append("max_price", String(Payload.max_price));
     navigate(`/tours${url}`);
   }
 
@@ -76,7 +68,7 @@ export default function FilterPage() {
 
   return (
     //
-    <div className=" m-12 flex flex-col">
+    <div className="container mx-auto mt-12 flex flex-col">
       <BackButton
         className="w-[43px] h-[43px] rounded-full p-[10px]  bg-[#F3F4F6] flex items-center justify-center"
         onClick={() => navigate(-1)}

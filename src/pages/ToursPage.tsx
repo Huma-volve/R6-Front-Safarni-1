@@ -18,25 +18,25 @@ export default function AvailableTour() {
 
   const visibleTours = showAll ? data : data?.slice(0, TOURS_PER_SLIDE);
   if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>Error loading items</p>;
-  if (!data) return <p>No data!</p>;
+  if (error) return <p className="text-red-800 font-semibold align-center text-2xl">Error loading items</p>;
+  if (!data) return <p className="text-red-800 font-semibold align-center text-2xl">No data!</p>;
   console.log(data);
   return (
-    <>
-      <div className=" ml-18 mt-10 flex flex-col">
+    <div className="container mx-auto">
+      <div className=" mt-10 flex flex-col">
         <BackButton
           className=" w-[43px] h-[43px] rounded-full p-[10px]  bg-[#F3F4F6] flex items-center justify-center"
           onClick={() => navigate(-1)}
         />
       </div>
       <div className="flex md:flex-row md:justify-between flex-col">
-        <div className="flex items-center">
-          <h1 className="m-20 font-poppins font-medium text-[25px] leading-[100%] tracking-normal text-[#111928]">
+        <div className="flex items-center gap-10">
+          <h1 className=" font-poppins font-medium text-[25px] leading-[100%] tracking-normal text-[#111928]">
             {location}
           </h1>
-          <h1 className="m-20 font-poppins font-medium text-[20px] leading-[100%] tracking-normal text-gray-600">
+          <p className="font-poppins font-medium text-[20px] leading-[100%] tracking-normal text-gray-600">
             {resultLength} Results
-          </h1>
+          </p>
         </div>
         <button
           onClick={() => setShowAll(!showAll)}
@@ -45,9 +45,9 @@ export default function AvailableTour() {
           {showAll ? "View less" : "View all"}
         </button>
       </div>
-      <div className="flex flex-wrap justify-center gap-8">
+      <div className="flex flex-wrap justify-start gap-8">
         {visibleTours?.map((tour) => (
-          <div className="relative flex flex-col justify-start items-center w-[299px] h-[400px]  rounded-2xl shadow-[0_4px_10px_0_#6F6F6F40]">
+          <div className="relative flex flex-col justify-start items-center w-[22%] pb-5 rounded-2xl shadow-[0_4px_10px_0_#6F6F6F40]">
             <img
               className="w-[267px] h-[260px]  mt-4 rounded-[8px]"
               src={tour.image}
@@ -86,6 +86,6 @@ export default function AvailableTour() {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 }

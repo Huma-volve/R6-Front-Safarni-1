@@ -5,7 +5,7 @@ import Logo from "../components/Logo";
 export default function WelcomePage() {
   const navigate = useNavigate();
   return (
-    <>
+    <div className="container mx-auto">
       <Logo className="flex flex-row md:justify-end justify-center " />
       <div className=" flex justify-center items-center">
         <div className="flex md:flex-row md:justify-between">
@@ -39,6 +39,6 @@ export default function WelcomePage() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

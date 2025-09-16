@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 export default function PasswordResetPage() {
   const navigate = useNavigate();
   return (
-    <>
+    <div className="container mx-auto">
       <Logo className="hidden md:flex flex-row md:justify-end justify-center " />
       <div className=" flex flex-row justify-center items-center">
         <div className="flex flex-col justify-start items-start w-[510px] h-[470px]  rounded-[30px] gap-[10px]">
@@ -38,6 +38,6 @@ export default function PasswordResetPage() {
           </button>
         </div>
       </div>
-    </>
+    </div>
   );
 }

@@ -9,8 +9,8 @@ export default function Recommendation() {
   const [showAll, setShowAll] = useState(false);
   const visibleTours = showAll ? data : data?.slice(0, TOURS_PER_SLIDE);
   if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>Error loading items</p>;
-  if (!data) return <p>No data!</p>;
+  if (error) return <p className="text-red-800 font-semibold align-center text-2xl">Error loading items</p>;
+  if (!data) return <p className="text-red-800 font-semibold align-center text-2xl">No data!</p>;
   console.log(data);
   return (
     <>

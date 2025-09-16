@@ -44,3 +44,8 @@ export type SearchToursResponse = {
   is_recommended: boolean;
   is_favourite: boolean;
 };
+export type LocationResponse = {
+  status: string;
+  message: string;
+  data: string[];
+};
