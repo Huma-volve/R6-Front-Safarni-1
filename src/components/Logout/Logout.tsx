@@ -7,12 +7,15 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
-import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
 
 export default function LogoutDialog() {
   const [open, setOpen] = React.useState(false);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
+  const navigate = useNavigate();
+  const { logout } = useAuth();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -22,9 +25,10 @@ export default function LogoutDialog() {
     setOpen(false);
   };
 
-  const handleConfirmLogout = () => {
+  const handleLogout = () => {
+    logout();
     setOpen(false);
-    console.log("User logged out!");
+    navigate("/login");
   };
 
   return (
@@ -44,18 +48,16 @@ export default function LogoutDialog() {
         onClose={handleClose}
         aria-labelledby="logout-dialog-title"
       >
-        <DialogTitle id="logout-dialog-title">{"Logout"}</DialogTitle>
+        <DialogTitle id="responsive-dialog-title">{"Logout"}</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Do you want to log out already?
+            Do You Want To Log Out Already ?
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} autoFocus>
-            No
-          </Button>
-          <Button onClick={handleConfirmLogout} variant="contained" color="error">
-            Yes, Log Me Out
+          <Button onClick={handleClose}>No</Button>
+          <Button onClick={handleLogout} variant="contained" autoFocus>
+            Yes Log Me Out
           </Button>
         </DialogActions>
       </Dialog>

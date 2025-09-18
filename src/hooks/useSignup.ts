@@ -12,7 +12,3 @@ export function useSignup() {
     },
   });
 }
-// (data) => {
-//       // Save the new user into the cache immediately
-//       queryClient.setQueryData(["authUser"], data);
-//     },

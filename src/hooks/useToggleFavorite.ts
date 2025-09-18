@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import type { Tour } from "../types/mohamed/types";
-import { addFavorite, removeFavorite } from "../api/Mohamed/favorite";
+import { addFavorite, removeFavorite } from "../api/favorites";
 
 type Vars = { id: number | string; currentlyFavorite: boolean };
 type Context = { previousTours?: Tour[]; previousFavorites?: number[] };

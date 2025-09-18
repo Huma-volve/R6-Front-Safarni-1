@@ -13,36 +13,38 @@ type SignupResponse = {
   };
 };
 export async function signup(userData: SignupData): Promise<SignupResponse> {
-  console.log(userData);
   const formData = new FormData();
   formData.append("name", userData.name);
   formData.append("email", userData.email);
   formData.append("password", userData.password);
-  console.log(formData);
 
   try {
     const res = await fetch(
       "https://round5-safarnia.huma-volve.com/api/register",
       {
         method: "POST",
-        // headers: { "Content-Type": "application/json" },
         body: formData,
       }
     );
+
+    const data = await res.json();
     if (!res.ok) {
-      const error = await res.json();
-      throw new Error(error.message || "Signup failed");
+      throw { status: res.status, ...data };
     }
     console.log(res);
-    const data = await res.json();
+    // const data = await res.json();
     localStorage.setItem("name", data.data.name);
     localStorage.setItem("email", data.data.email);
     localStorage.setItem("authToken", data.data.token);
     console.log(data);
+
     return data;
   } catch (error) {
-    console.log(error);
-    throw error instanceof Error ? error : new Error("Unexpected signup error");
+    console.log("Signup error in API:", error);
+    if (typeof error === "object" && error !== null) {
+      throw error;
+    }
+    throw new Error("Unexpected signup error");
   }
 }
 

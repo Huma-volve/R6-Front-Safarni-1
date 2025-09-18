@@ -1,2 +1,108 @@
 @import "tailwindcss";
 @import "leaflet/dist/leaflet.css";
+
+@font-face {
+    font-family: "Poppins";
+    src: url("/src/assets/fonts/Poppins-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("/src/assets/fonts/Poppins-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("/src/assets/fonts/Poppins-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("/src/assets/fonts/Poppins-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("/src/assets/fonts/Poppins-ExtraBold.ttf") format("truetype");
+    font-weight: 800;
+    font-style: normal;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+/* Mobile-specific styles */
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+/* Mobile viewport adjustments */
+@supports (-webkit-touch-callout: none) {
+    .h-screen {
+        height: -webkit-fill-available;
+    }
+}
+
+/* Touch-friendly button sizes */
+@media (max-width: 768px) {
+
+    button,
+    a {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+/* Safe area adjustments for mobile devices */
+@supports (padding: max(0px)) {
+    .safe-area-top {
+        padding-top: max(1rem, env(safe-area-inset-top));
+    }
+
+    .safe-area-bottom {
+        padding-bottom: max(1rem, env(safe-area-inset-bottom));
+    }
+}
+
+/* Mobile-specific animations */
+@media (max-width: 768px) {
+    .mobile-fade-in {
+        animation: mobileFadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes mobileFadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+@layer utilities {
+    .categoryFilter {
+        @apply flex items-center gap-1 py-2 px-4 md:px-12 md:py-3 text-lg md:text-xl rounded-full bg-white backdrop-blur border border-slate-200 hover:bg-white transition-colors whitespace-nowrap flex-shrink-0 cursor-pointer
+    }
+
+    .active {
+        @apply font-semibold text-blue-900
+    }
+}

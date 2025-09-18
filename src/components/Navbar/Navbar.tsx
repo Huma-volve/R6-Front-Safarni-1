@@ -1,51 +1,45 @@
-import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
 import { Search, SlidersHorizontal } from "lucide-react";
-import Logo from "../../assets/images/Logo.jpg";
-import DefaultAvatar from "../../assets/images/person1.jpg";
-// import type { NavbarProps,NavItem } from "../../types/sylvia/types";
-import NavbarMobile from "../NavbarMobile/NavbarMobile";
+import { useAuth } from "../../hooks/useAuth";
 
-const defaultLinks = [
-  { label: "Home", to: "/" },
-  { label: "Favorite", to: "/favorite" },
-  { label: "Compare", to: "/compare" },
-  { label: "Maps", to: "/maps" },
-];
+export const Navbar = () => {
+  const { authToken } = useAuth();
 
-export default function Navbar({
-  links = defaultLinks,
-  user = null,
-}) {
-  const [mobileOpen, setMobileOpen] = useState(false);
+  if (!authToken) return null;
 
   return (
     <>
+      {/* Desktop Navigation Bar */}
       <div
-        className="fixed top-8 left-0 right-0 h-[80px] mx-[100px] z-50 
-        hidden md:flex items-center justify-between px-6 py-2 
-        rounded-xl bg-white shadow-sm"
+        className="fixed top-8 left-0 right-0 h-[94px] mx-[100px] z-50 items-center justify-between px-6 py-2 
+                hidden md:flex rounded-xl bg-white"
       >
         <div className="flex items-center gap-4">
-          <div className="w-[74px] h-[78px] flex flex-col items-center">
+          {/* Logo */}
+          <div className="w-[74px] h-[78px] gap-2 flex flex-col items-center">
             <div className="w-[45px] h-[42px]">
-              <img src={Logo} alt="Logo" className="w-full h-full" />
+              <img
+                src="/src/assets/images/logo.png"
+                alt="Logo"
+                className="w-full h-full"
+              />
             </div>
             <div className="text-blue-900 font-semibold text-lg text-center">
               Safarni
             </div>
           </div>
         </div>
-
-        <nav className="flex items-center gap-6 text-2xl text-gray-900 font-medium">
-          {links.map((link) => (
-            <NavLink key={link.to} to={link.to}>
-              {link.label}
-            </NavLink>
-          ))}
-        </nav>
-
+        <div className="flex items-center gap-4">
+          {/* NavLinks */}
+          <nav className="hidden md:flex items-center gap-6 text-2xl text-gray-900 font-medium">
+            <NavLink to={"/home"}>Home</NavLink>
+            <NavLink to={"/favorite"}>Favorite</NavLink>
+            <NavLink to={"/compare"}>Compare</NavLink>
+            <NavLink to={"/maps"}>maps</NavLink>
+          </nav>
+        </div>
+        {/* Icon Right */}
         <div className="flex items-center gap-4">
           <NavLink
             to={"/search"}
@@ -60,20 +54,10 @@ export default function Navbar({
             <SlidersHorizontal className="text-gray-600" />
           </NavLink>
           <NavLink to={"/profile"}>
-            <Avatar
-              alt={"User"}
-              src={DefaultAvatar}
-            />
+            <Avatar alt="Cindy Baker" src="/src/assets/images/avatar.png" />
           </NavLink>
         </div>
       </div>
-
-      <div className="md:hidden fixed top-0 left-0 right-0 z-50">
-        <NavbarMobile
-          mobileOpen={mobileOpen}
-          setMobileOpen={setMobileOpen}
-        />
-      </div>
     </>
   );
-}
+};

@@ -12,7 +12,6 @@ export default function AvailableTour() {
   const navigate = useNavigate();
   const { search } = useLocation();
   const params = new URLSearchParams(search);
-  console.log(params);
   const location = params.get("location");
   const resultLength = data?.length;
 
@@ -20,7 +19,6 @@ export default function AvailableTour() {
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error loading items</p>;
   if (!data) return <p>No data!</p>;
-  console.log(data);
   return (
     <>
       <div className=" ml-18 mt-10 flex flex-col">
@@ -47,7 +45,11 @@ export default function AvailableTour() {
       </div>
       <div className="flex flex-wrap justify-center gap-8">
         {visibleTours?.map((tour) => (
-          <div className="relative flex flex-col justify-start items-center w-[299px] h-[400px]  rounded-2xl shadow-[0_4px_10px_0_#6F6F6F40]">
+          <div
+            key={tour.id}
+            onClick={() => navigate(`/destination/${tour.id}`)}
+            className="relative flex flex-col justify-start items-center w-[299px] h-[400px]  rounded-2xl shadow-[0_4px_10px_0_#6F6F6F40]"
+          >
             <img
               className="w-[267px] h-[260px]  mt-4 rounded-[8px]"
               src={tour.image}
