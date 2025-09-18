@@ -6,7 +6,6 @@ import LanguageRoundedIcon from "@mui/icons-material/LanguageRounded";
 import LockRoundedIcon from "@mui/icons-material/LockRounded";
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import { useNavigate } from "react-router-dom";
-import Logout from "../../components/Logout/Logout";
 import ResponsiveDialog from "../../components/Logout/Logout";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
@@ -17,7 +16,7 @@ const Profile = () => {
     if (name === "Personal Information") {
       navigate("/personal-info");
     } else if (name === "MyBooking") {
-      navigate("/MyBooking");
+      navigate("/my-booking");
     } else if (name === "Account & Security") {
       navigate("/account-security");
     }
@@ -112,20 +111,6 @@ const Profile = () => {
         </div>
       </div>
 
-      {/* Profile Options */}
-      <div className="info mx-auto mt-6 rounded-lg border border-gray-600 overflow-hidden">
-        
-
-        {/* Logout */}
-        <div className="flex items-center justify-between p-4 cursor-pointer hover:bg-red-50 hover:scale-[1.02] transition-all duration-200 ease-in-out">
-          <button className="flex items-center gap-2">
-            <LogoutRoundedIcon color="error" />
-            <p className="text-red-700 text-sm sm:text-base">
-              <Logout />
-            </p>
-          </button>
-        </div>
-      </div>
     </>
   );
 };
