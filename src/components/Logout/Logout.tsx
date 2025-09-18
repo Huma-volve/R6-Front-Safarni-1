@@ -9,6 +9,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
+import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 
 export default function LogoutDialog() {
   const [open, setOpen] = React.useState(false);

@@ -1,11 +1,11 @@
 import { Outlet } from "react-router-dom";
-import Navbar from "../Navbar/Navbar";
+import { Navbar } from "../Navbar/Navbar";
 
 const Layout = () => {
   return (
     <>
       <div className="min-h-screen flex flex-col w-full">
-        <Navbar user={null} />
+        <Navbar />
 
         <div className="container mx-auto">
           <Outlet />
