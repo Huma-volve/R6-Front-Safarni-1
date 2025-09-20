@@ -1,4 +1,5 @@
 export type CategoryResponse = {
+  id : number,
   title: string;
   image: string | undefined;
   data: { title: string; description: string; image: string };
