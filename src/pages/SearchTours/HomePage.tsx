@@ -6,10 +6,14 @@ import Recommendation from "../../components/Home/Recommendation";
 export default function homePage() {
   return (
     <div>
-      <Landing />
-      <Categories />
-      <Recommendation />
-      <AvailableTour />
+      {localStorage.getItem("authToken") ? (
+        <>
+          <Landing />
+          <Categories />
+          <Recommendation />
+          <AvailableTour />
+        </>
+      ) : null}
     </div>
   );
 }

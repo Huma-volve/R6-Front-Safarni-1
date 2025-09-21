@@ -24,14 +24,14 @@ export default function WelcomePage() {
             </p>
             <button
               className="md:w-[510px] md:h-[56px] w-sm h-sm  rounded-[8px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] bg-[#1E429F] text-[#FFFFFF]
-              font-poppins font-semibold text-[20px] leading-[25px] tracking-[0.02em] capitalize"
+              font-poppins font-semibold text-[20px] leading-[25px] tracking-[0.02em] capitalize cursor-pointer"
               onClick={() => navigate("/signup")}
             >
               Sign Up
             </button>
             <button
               className="md:w-[510px] md:h-[56px] w-sm h-sm  rounded-[8px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] border-[1px] border-[#1E429F] text-[#1E429F]
-              font-poppins font-semibold text-[20px] leading-[25px] tracking-[0.02em] capitalize"
+              font-poppins font-semibold text-[20px] leading-[25px] tracking-[0.02em] capitalize cursor-pointer"
               onClick={() => navigate("/login")}
             >
               Log In
