@@ -17,8 +17,19 @@ export default function AvailableTour() {
         </div>
       </>
     );
-  if (error) return <p>Error loading items</p>;
-  if (!data) return <p>No data!</p>;
+  if (error)
+    return (
+      <p className="text-red-800 font-semibold align-center text-2xl">
+        Error loading items
+      </p>
+    );
+  if (!data)
+    return (
+      <p className="text-red-800 font-semibold align-center text-2xl">
+        No data!
+      </p>
+    );
+  console.log(data);
   return (
     <>
       <div className="md:mx-[100px] px-4 md:px-0 py-10 flex flex-row items-center justify-between">
