@@ -8,7 +8,6 @@ import CheckoutContext from "../../context/CheckoutContext";
 import {
     initiateCheckout,
     confirmCheckout,
-    processStripePayment,
 } from "../../api/paymentApi";
 
 import CardImg from "../../assets/Rectangle 20.png";
@@ -105,7 +104,7 @@ export default function Payment({
     const disabled = mutation.isPending;
 
     return (
-        <div className="px-6 md:px-10 lg:px-16 py-8">
+        <div className="px-6 md:px-10 lg:px-16 py-8 mt-25 max-sm:mt-15">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start md:h-120">
                 {/* Left  */}
                 <div className="lg:col-span-5">

@@ -8,7 +8,7 @@ export default function Success() {
 
 
   return (
-    <div className="px-6 md:px-10 lg:px-16 py-8 md:h-120">
+    <div className="px-6 md:px-10 lg:px-16 py-8 md:h-120  mt-25 max-sm:mt-15">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         <div className="lg:col-span-5">
           <div className="rounded-2xl md:h-120 w-full bg-gray-100 flex items-center justify-center">
