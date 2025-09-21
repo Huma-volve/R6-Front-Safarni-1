@@ -1,22 +1,11 @@
-import { useEffect } from "react";
-import { useContext } from "react";
 import successIcon from "../../assets/successLogo.png"
 import { Button, Stack, Typography } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { useNavigate } from "react-router-dom";
-import CheckoutContext from "../../context/CheckoutContext";
 
-export default function PaymentSuccessPage() {
+export default function Success() {
   const navigate = useNavigate();
-  const ctx = useContext(CheckoutContext);
-  if (!ctx) throw new Error("Must be used inside PaymentProvider");
-  const { lastPayment } = ctx;
 
-  useEffect(() => {
-    if (!lastPayment) navigate("/checkout", { replace: true });
-  }, [lastPayment, navigate]);
-
-  if (!lastPayment) return null;
 
   return (
     <div className="px-6 md:px-10 lg:px-16 py-8 md:h-120">
@@ -62,3 +51,6 @@ export default function PaymentSuccessPage() {
     </div>
   );
 }
+
+
+

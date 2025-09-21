@@ -13,4 +13,3 @@ export interface NavbarProps {
 
 
 
-  // checkouts 
