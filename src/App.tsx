@@ -21,7 +21,6 @@ import HotelReview from "./pages/HotelBooking/HotelReview";
 // Checkout
 import Checkout from "./pages/Checkout/Checkout";
 import Success from "./pages/Checkout/Success";
-// import { PaymentProvider } from "./context/CheckoutContext"
 
 // Auth pages
 import WelcomePage from "./pages/Auth/WelcomePage";

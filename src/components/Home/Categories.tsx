@@ -11,8 +11,18 @@ export default function Categories() {
   const { data, isLoading, error } = useCategory();
 
   if (isLoading) return <Loading />;
-  if (error) return <p>Error loading items</p>;
-  if (!data) return <p>No data!</p>;
+  if (error)
+    return (
+      <p className="text-red-800 font-semibold align-center text-2xl">
+        Error loading items
+      </p>
+    );
+  if (!data)
+    return (
+      <p className="text-red-800 font-semibold align-center text-2xl">
+        No data!
+      </p>
+    );
 
   const imageMap: Record<string, string> = {
     flight,
