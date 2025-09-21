@@ -1,10 +1,9 @@
-import type { SearchToursResponse } from "../types/types";
-export async function allSearchedTours(
-  params: string
-): Promise<SearchToursResponse[]> {
+import type { LocationResponse } from "../types/types";
+
+export async function allLocations(): Promise<LocationResponse> {
   try {
     const res = await fetch(
-      `https://round5-safarnia.huma-volve.com/api/tours${params}`,
+      "https://round5-safarnia.huma-volve.com/api/locations",
       {
         method: "GET",
         headers: { "Content-Type": "application/json" },
@@ -15,7 +14,8 @@ export async function allSearchedTours(
       throw new Error(error.message || "Fetch failed");
     }
     const data = await res.json();
-    return data.data;
+
+    return data;
   } catch (error) {
     console.log(error);
     throw error instanceof Error ? error : new Error("Unexpected fetch error");
