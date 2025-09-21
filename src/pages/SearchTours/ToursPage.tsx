@@ -31,14 +31,14 @@ export default function AvailableTour() {
     );
   console.log(data);
   return (
-    <div className="container mx-auto">
-      <div className=" mt-10 flex flex-col">
+    <div className="container mt-40 ml-23">
+      <div className="flex flex-col">
         <BackButton
           className=" w-[43px] h-[43px] rounded-full p-[10px]  bg-[#F3F4F6] flex items-center justify-center"
           onClick={() => navigate(-1)}
         />
       </div>
-      <div className="flex md:flex-row md:justify-between flex-col">
+      <div className="flex md:flex-row md:gap-180 flex-col">
         <div className="flex items-center gap-10">
           <h1 className=" font-poppins font-medium text-[25px] leading-[100%] tracking-normal text-[#111928]">
             {location}
@@ -54,15 +54,15 @@ export default function AvailableTour() {
           {showAll ? "View less" : "View all"}
         </button>
       </div>
-      <div className="flex flex-wrap justify-start gap-8">
+      <div className="flex flex-wrap justify-start gap-5">
         {visibleTours?.map((tour) => (
           <div
             key={tour.id}
             onClick={() => navigate(`/destination/${tour.id}`)}
-            className="relative flex flex-col justify-start items-center w-[299px] h-[400px]  rounded-2xl shadow-[0_4px_10px_0_#6F6F6F40]"
+            className="relative flex flex-col justify-start items-center w-66 h-88  rounded-2xl shadow-[0_4px_10px_0_#6F6F6F40]"
           >
             <img
-              className="w-[267px] h-[260px]  mt-4 rounded-[8px]"
+              className="w-[240px] h-[245px]  mt-4 rounded-[8px]"
               src={tour.image}
               alt="img"
             />
@@ -77,7 +77,7 @@ export default function AvailableTour() {
               />
             </div>
             <div>
-              <div className="w-[256px] flex justify-between">
+              <div className="w-60 flex justify-between">
                 <h1 className="mt-2 pb-2 font-poppins font-medium text-[15px] leading-[100%] tracking-normal text-[#111928]">
                   {tour.title}
                 </h1>

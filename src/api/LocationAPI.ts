@@ -1,6 +1,6 @@
 import type { LocationResponse } from "../types/types";
 
-export async function allLocations(): Promise<LocationResponse[]> {
+export async function allLocations(): Promise<LocationResponse> {
   try {
     const res = await fetch(
       "https://round5-safarnia.huma-volve.com/api/locations",

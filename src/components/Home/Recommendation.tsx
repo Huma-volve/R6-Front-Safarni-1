@@ -44,7 +44,11 @@ export default function Recommendation() {
                 key={tour.id}
                 className="flex flex-col items-center p-2 rounded-2xl shadow-[0_4px_10px_0_#6F6F6F40] overflow-hidden"
               >
-                <img className=" rounded-[8px]" src={tour.image} alt="img" />
+                <img
+                  className="w-66 h-60 rounded-[8px]"
+                  src={tour.image}
+                  alt="img"
+                />
                 <div className="text-left w-full mt-2">
                   <h1 className="m-2 pb-2 font-poppins font-medium md:text-lg leading-[100%] tracking-normal text-[#111928]">
                     {tour.title}
