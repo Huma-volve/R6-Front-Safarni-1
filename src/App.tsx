@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-// import Layout from "./components/Layout/Layout.tsx";
+import Layout from "./components/layout/Layout.tsx";
 import Profile from "./pages/Profile/Profile";
 import PersonalInfo from "./pages/Profile/PersonalInfo/PersonalInfo";
 import AccountSecurity from "./pages/Profile/AccountAndSec/AccountAndSec";
