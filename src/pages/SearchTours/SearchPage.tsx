@@ -4,7 +4,7 @@ import Input from "@mui/material/Input";
 import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
 
-import LocationImage from "../assets/location-icon.png";
+import LocationImage from "../../assets/location-icon.png";
 import { useLocation } from "../../hooks/useLocation";
 // eslint-disable-next-line react-refresh/only-export-components
 export function createURL(query: string): string {
@@ -39,14 +39,8 @@ export default function SearchPage() {
     navigate(`/tours${url}`);
   }
   return (
-    //  <div className="flex flex-row items-center justify-center mt-10 md:mt-40">
-    // <div className="w-full flex items-center gap-6 m-auto px-5 md:mx-[120px]">
-    //   <BackButton
-    //     className="w-[43px] h-[43px] rounded-full p-[10px] bg-[#F3F4F6] flex items-center justify-center"
-    //     onClick={() => navigate(-1)}
-    //   />
-    <div className="container mx-auto">
-      <div className="flex flex-col items-center justify-center mt-5">
+    <>
+      <div className="flex flex-col items-center justify-center mt-10 md:mt-40">
         <div className=" flex gap-5">
           <BackButton
             className="w-[43px] h-[43px] rounded-full p-[10px]  bg-[#F3F4F6] flex items-center justify-center"
@@ -60,7 +54,7 @@ export default function SearchPage() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               // w-230
-              className=" w-full h-10 pl-10 pr-4 py-2 border border-[#3F83F8] rounded-xl 
+              className=" w-5xl h-10 pl-10 pr-4 py-2 border border-[#3F83F8] rounded-xl 
                    focus:outline-none focus:ring-2 focus:ring-[#ffffff] shadow-[0_4px_10px_0_#3F52B433]"
             />
           </form>
@@ -71,7 +65,7 @@ export default function SearchPage() {
               <>
                 <button
                   onClick={() => handleSubmit(response)}
-                  className="w-[62rem] h-28 flex items-center gap-3 text-gray-900 font-semibold text-xl"
+                  className="w-[68rem] h-28 flex items-center gap-3 text-gray-900 font-semibold text-xl"
                 >
                   <img
                     className="w-18 "
@@ -89,6 +83,6 @@ export default function SearchPage() {
           )}
         </div>
       </div>
-    </div>
+    </>
   );
 }
