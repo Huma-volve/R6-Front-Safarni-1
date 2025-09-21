@@ -7,6 +7,8 @@ import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import SearchIcon from "@mui/icons-material/Search";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
+import { useNavigate } from "react-router-dom";
+
 
 import hotelImage from "../../assets/images/hotel3.jpg";
 import person from "../../assets/images/person1.jpg";
@@ -37,6 +39,9 @@ import type {
 
 const HotelDetailsApp = () => {
   const params = useParams<{ id: string }>();
+
+  const navigate = useNavigate();
+
 
   const [selectedRoom, setSelectedRoom] = useState<Room | null>(null);
   const [loading, setLoading] = useState(true);
@@ -194,6 +199,7 @@ const HotelDetailsApp = () => {
       await bookRoom(bookingData);
       alert("Booking confirmed!");
       closeBookingDetails();
+      navigate("/checkout")
     } catch (error) {
       console.error("Error booking:", error);
       alert("Something went wrong. Please try again.");
@@ -436,11 +442,10 @@ const HotelDetailsApp = () => {
                     {[1, 2, 3, 4, 5].map((star) => (
                       <StarIcon
                         key={star}
-                        className={`w-4 h-4 ${
-                          star <= review.rating
+                        className={`w-4 h-4 ${star <= review.rating
                             ? "text-yellow-400 fill-current"
                             : "text-gray-300"
-                        }`}
+                          }`}
                       />
                     ))}
                   </div>
@@ -476,11 +481,10 @@ const HotelDetailsApp = () => {
             onClick={() => setReviewRating(star)}
           >
             <StarIcon
-              className={`w-6 h-6 ${
-                star <= reviewRating
+              className={`w-6 h-6 ${star <= reviewRating
                   ? "text-yellow-400 fill-current"
                   : "text-gray-300"
-              }`}
+                }`}
             />
           </button>
         ))}
@@ -540,11 +544,10 @@ const HotelDetailsApp = () => {
               </div>
               <button
                 onClick={() => handleCheckInChange(date)}
-                className={`w-full rounded px-3 py-4 text-sm mt-2 transition-colors ${
-                  checkIn === date
+                className={`w-full rounded px-3 py-4 text-sm mt-2 transition-colors ${checkIn === date
                     ? "bg-[#1E429F] border border-[#1E429F] text-white"
                     : "border border-gray-400 hover:border-blue-300"
-                }`}
+                  }`}
               >
                 {date}
               </button>
@@ -563,11 +566,10 @@ const HotelDetailsApp = () => {
               </div>
               <button
                 onClick={() => handleCheckOutChange(date)}
-                className={`w-full rounded px-3 py-4 text-sm mt-2 transition-colors ${
-                  checkOut === date
+                className={`w-full rounded px-3 py-4 text-sm mt-2 transition-colors ${checkOut === date
                     ? "bg-[#1E429F] border border-[#1E429F] text-white"
                     : "border border-gray-400 hover:border-blue-300"
-                }`}
+                  }`}
               >
                 {date}
               </button>
@@ -712,11 +714,10 @@ const HotelDetailsApp = () => {
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`py-2 px-1 focus:outline-none focus:border-none font-medium text-sm transition-colors ${
-                activeTab === tab
+              className={`py-2 px-1 focus:outline-none focus:border-none font-medium text-sm transition-colors ${activeTab === tab
                   ? "border-b-2 border-blue-500 text-blue-600"
                   : " text-gray-500 hover:text-gray-700"
-              }`}
+                }`}
             >
               {tab}
             </button>
@@ -741,9 +742,8 @@ const HotelDetailsApp = () => {
           <div
             key={roomItem.id}
             onClick={() => loadRoomDetails(roomItem.id)}
-            className={`bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow overflow-hidden cursor-pointer ${
-              selectedRoom?.id === roomItem.id ? "ring-2 ring-blue-500" : ""
-            }`}
+            className={`bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow overflow-hidden cursor-pointer ${selectedRoom?.id === roomItem.id ? "ring-2 ring-blue-500" : ""
+              }`}
           >
             <div className="h-48 bg-gradient-to-br flex items-center justify-center">
               <img
@@ -873,10 +873,10 @@ const HotelDetailsApp = () => {
               {reviewModalOpen
                 ? renderReviewModal()
                 : bookingModalOpen
-                ? renderBookingModal()
-                : bookingDetailsOpen
-                ? renderBookingDetails()
-                : renderTabs()}
+                  ? renderBookingModal()
+                  : bookingDetailsOpen
+                    ? renderBookingDetails()
+                    : renderTabs()}
             </div>
 
             {!reviewModalOpen && !bookingModalOpen && !bookingDetailsOpen && (
