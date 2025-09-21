@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import Layout from "./components/Layout/Layout.tsx";
+// import Layout from "./components/Layout/Layout.tsx";
 import Profile from "./pages/Profile/Profile";
 import PersonalInfo from "./pages/Profile/PersonalInfo/PersonalInfo";
 import AccountSecurity from "./pages/Profile/AccountAndSec/AccountAndSec";
@@ -16,9 +16,7 @@ import CarDetails from "./pages/CarBooking/CarDetails";
 import CarMap from "./pages/CarBooking/CarBooking.tsx";
 import HotelBooking from "./pages/HotelBooking/HotelBooking";
 import HotelReview from "./pages/HotelBooking/HotelReview";
-import Destination from "./pages/Destination/Destination";
-import Map from "./pages/Map/Map";
-import Tour from "./pages/Tours/Tours";
+
 
 // Checkout
 import Checkout from "./pages/Checkout/Checkout";
