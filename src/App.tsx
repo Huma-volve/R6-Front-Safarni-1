@@ -7,6 +7,8 @@ import PersonalInfo from "./pages/Profile/PersonalInfo/PersonalInfo";
 import AccountSecurity from "./pages/Profile/AccountAndSec/AccountAndSec";
 import MyBooking from "./pages/Profile/MyBooking/MyBooking";
 import AppLanguage from "./pages/Profile/AppLanguage/AppLanguage";
+
+// Other feature pages
 import Favorites from "./pages/Favorite/Favorite";
 import Compare from "./pages/Compare/Compare";
 import CarBooking from "./pages/CarBooking/CarBooking";
@@ -14,6 +16,12 @@ import CarDetails from "./pages/CarBooking/CarDetails";
 import CarMap from "./pages/CarBooking/CarBooking.tsx";
 import HotelBooking from "./pages/HotelBooking/HotelBooking";
 import HotelReview from "./pages/HotelBooking/HotelReview";
+
+// Checkout
+import Checkout from "./pages/Checkout/Checkout";
+import Success from "./pages/Checkout/Success";
+
+// Auth pages
 import WelcomePage from "./pages/Auth/WelcomePage";
 import SignupPage from "./pages/Auth/SignupPage";
 import LoginPage from "./pages/Auth/LoginPage";
@@ -21,6 +29,8 @@ import ForgetPasswordPage from "./pages/Auth/ForgetPasswordPage";
 import VerifyCodePage from "./pages/Auth/VerifyCodePage";
 import NewPasswordPage from "./pages/Auth/NewPasswordPage";
 import PasswordResetPage from "./pages/Auth/PasswordResetPage";
+
+// Search & Tours pages
 import HomePage from "./pages/SearchTours/HomePage";
 import SearchPage from "./pages/SearchTours/SearchPage";
 import FilterPage from "./pages/SearchTours/FilterPage";
@@ -53,6 +63,9 @@ function App() {
               <Route path="/new-password" element={<NewPasswordPage />} />
               <Route path="/password-reset" element={<PasswordResetPage />} />
               {/* End Auth */}
+
+              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/checkout/success" element={<Success />} />
 
               {/* Profile Routes */}
               <Route

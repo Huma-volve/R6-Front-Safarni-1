@@ -43,7 +43,7 @@ export const pickUpCar = async (
         body: JSON.stringify({
           car_id: id,
             pickup_date: formatDate(new Date()),
-                 return_date: formatDate(new Date(Date.now() + 86400000)),
+                return_date: formatDate(new Date(Date.now() + 86400000)),
         }),
       }
     );
