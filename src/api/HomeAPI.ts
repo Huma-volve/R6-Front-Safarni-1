@@ -7,7 +7,7 @@ import type {
 export async function allCategories(): Promise<CategoryResponse[]> {
   try {
     const res = await fetch(
-      "https://round5-safarnia.huma-volve.com/api/allcategory",
+      "https://round7-safarni-team-one.huma-volve.com/api/allcategory",
       {
         method: "GET",
         headers: { "Content-Type": "application/json" },
@@ -31,7 +31,7 @@ export async function allRecommendedTours(): Promise<
 > {
   try {
     const res = await fetch(
-      "https://round5-safarnia.huma-volve.com/api/recommendedtour",
+      "https://round7-safarni-team-one.huma-volve.com/api/recommendedtour",
       {
         method: "GET",
         headers: { "Content-Type": "application/json" },
@@ -52,7 +52,7 @@ export async function allRecommendedTours(): Promise<
 export async function allTrendingTours(): Promise<TrendingToursResponse[]> {
   try {
     const res = await fetch(
-      "https://round5-safarnia.huma-volve.com/api/trending-tours",
+      "https://round7-safarni-team-one.huma-volve.com/api/trending-tours",
       {
         method: "GET",
         headers: { "Content-Type": "application/json" },

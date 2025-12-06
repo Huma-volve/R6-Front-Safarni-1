@@ -31,7 +31,7 @@ export default async function getAllReviews(
   const token = localStorage.getItem("authToken");
   try {
     const res = await fetch(
-      `https://round5-safarnia.huma-volve.com/api/tours/${tourId}/reviews`,
+      `https://round7-safarni-team-one.huma-volve.com/api/tours/${tourId}/reviews`,
       {
         method: "GET",
         headers: {

@@ -1,15 +1,9 @@
 import { Link } from "react-router-dom";
 import { Home, ArrowLeft, Search } from "lucide-react";
-import { Helmet, HelmetProvider } from "react-helmet-async";
 
 const NotFound = () => {
   return (
     <>
-      <HelmetProvider>
-        <Helmet>
-          <title>NotFound Page</title>
-        </Helmet>
-      </HelmetProvider>
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-white px-4">
         <div className="max-w-md w-full text-center">
           {/* 404 Illustration */}

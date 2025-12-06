@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Formik, Form, useField } from "formik";
 import * as Yup from "yup";
 import { TextField, InputAdornment, Alert } from "@mui/material";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useSignup } from "../../hooks/useSignup";
 import google from "../../assets/google.png";
 import facebook from "../../assets/facebook.png";
@@ -26,9 +27,13 @@ type ApiErrors = Record<string, string | string[]>;
 
 export default function SignupForm() {
   const { mutate } = useSignup();
-  const navigate = useNavigate();
 
-  const initialValues = { name: "", email: "", password: "" };
+  const initialValues = {
+    name: "",
+    email: "",
+    password: "",
+    password_confirmation: "",
+  };
 
   const SignupSchema = Yup.object({
     name: Yup.string().required("Name is required!"),
@@ -36,6 +41,10 @@ export default function SignupForm() {
     password: Yup.string()
       .min(8, "Must be at least 8 characters")
       .matches(/[@$!%*?&]/, "Must contain one special character")
+      .required("Password is required!"),
+    password_confirmation: Yup.string()
+      .min(8, "Must be at least 8 characters")
+      .oneOf([Yup.ref("password")], "Passwords must match")
       .required("Password is required!"),
   });
 
@@ -55,14 +64,8 @@ export default function SignupForm() {
         initialValues={initialValues}
         validationSchema={SignupSchema}
         onSubmit={(values, { setSubmitting, setErrors, setStatus }) => {
+          console.log(values);
           mutate(values, {
-            onSuccess: (data) => {
-              const token = data?.data?.token;
-              if (token) {
-                localStorage.setItem("authToken", token);
-              }
-              navigate("/login");
-            },
             onError: (error: any) => {
               console.log("Signup error:", error, error?.status, error?.data);
 
@@ -142,6 +145,24 @@ export default function SignupForm() {
             </label>
             <FormikTextField
               name="password"
+              type="password"
+              placeholder="******************"
+              size="small"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <LockOutlinedIcon fontSize="small" />
+                  </InputAdornment>
+                ),
+                style: { height: "56px", borderRadius: "8px" },
+              }}
+              sx={{ "& .MuiInputBase-input": { padding: "8px 16px" } }}
+            />
+            <label className="font-poppins font-medium text-[18px] text-[#373737]">
+              Password Confirmation
+            </label>
+            <FormikTextField
+              name="password_confirmation"
               type="password"
               placeholder="******************"
               size="small"

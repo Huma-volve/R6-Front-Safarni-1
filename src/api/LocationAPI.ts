@@ -3,7 +3,7 @@ import type { LocationResponse } from "../types/types";
 export async function allLocations(): Promise<LocationResponse> {
   try {
     const res = await fetch(
-      "https://round5-safarnia.huma-volve.com/api/locations",
+      "https://round7-safarni-team-one.huma-volve.com/api/locations",
       {
         method: "GET",
         headers: { "Content-Type": "application/json" },

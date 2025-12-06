@@ -1,13 +1,11 @@
-import type { Car } from "../../types/CarBooking/CarTypes"; 
+import type { Car } from "../../types/CarBooking/CarTypes";
 import { formatDate } from "../../types/CarBooking/CarTypes";
 
-
 export const fetchCarsData = async (): Promise<Car[]> => {
-
   const token = localStorage.getItem("authToken");
   try {
     const response = await fetch(
-      "https://round5-safarnia.huma-volve.com/api/cars",
+      "https://round7-safarni-team-one.huma-volve.com/api/cars",
       {
         method: "GET",
         headers: {
@@ -25,13 +23,10 @@ export const fetchCarsData = async (): Promise<Car[]> => {
   }
 };
 
-
-export const pickUpCar = async (
-  id: number | string,
-): Promise<any> => {
+export const pickUpCar = async (id: number | string): Promise<any> => {
   try {
     const response = await fetch(
-      `https://round5-safarnia.huma-volve.com/api/bookings`,
+      `https://round7-safarni-team-one.huma-volve.com/api/bookings`,
       {
         method: "POST",
         headers: {
@@ -42,8 +37,8 @@ export const pickUpCar = async (
         },
         body: JSON.stringify({
           car_id: id,
-            pickup_date: formatDate(new Date()),
-                return_date: formatDate(new Date(Date.now() + 86400000)),
+          pickup_date: formatDate(new Date()),
+          return_date: formatDate(new Date(Date.now() + 86400000)),
         }),
       }
     );
@@ -55,11 +50,10 @@ export const pickUpCar = async (
   }
 };
 
-
 export const fetchCarDetails = async (id: string): Promise<Car | null> => {
   try {
     const response = await fetch(
-      `https://round5-safarnia.huma-volve.com/api/cars/${id}`,
+      `https://round7-safarni-team-one.huma-volve.com/api/cars/${id}`,
       {
         method: "GET",
         headers: {

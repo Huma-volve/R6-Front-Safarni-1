@@ -7,7 +7,7 @@ type Data = {
 export async function getAllCars(): Promise<Data> {
   try {
     const token = localStorage.getItem("authToken");
-    const res = await fetch("https://round5-safarnia.huma-volve.com/api/cars", {
+    const res = await fetch("https://round7-safarni-team-one.huma-volve.com/api/cars", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

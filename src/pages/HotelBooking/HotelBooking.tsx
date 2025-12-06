@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { fetchHotels } from "../../api/Booking/HotelsBooking";
 import type { Hotel } from "../../types/HotelTypes/HotelTypes";
-import { Helmet, HelmetProvider } from "react-helmet-async";
 
 const HotelsApp = () => {
   const navigate = useNavigate();
@@ -21,11 +20,6 @@ const HotelsApp = () => {
 
   return (
     <>
-      <HelmetProvider>
-        <Helmet>
-          <title>Safarni - Hotel Booking</title>
-        </Helmet>
-      </HelmetProvider>
       <div className="bg-gray-50 min-h-screen">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="mb-8">

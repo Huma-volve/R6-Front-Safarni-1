@@ -6,7 +6,6 @@ import { getTourById } from "../../api/tours";
 import type { Tour } from "../../types/mohamed/types";
 import { useToggleFavorite } from "../../hooks/useToggleFavorite";
 import Loading from "../../components/Loading/Loading";
-import { Helmet, HelmetProvider } from "react-helmet-async";
 
 const DestinationPage = () => {
   const { id } = useParams();
@@ -61,11 +60,6 @@ const DestinationPage = () => {
 
   return (
     <>
-      <HelmetProvider>
-        <Helmet>
-          <title>Safarni - Details Page</title>
-        </Helmet>
-      </HelmetProvider>
       <div className="min-h-screen bg-white absolute top-0 left-0 md:static md:pt-60 md:px-[130px] pb-8 overflow-hidden">
         {/* Header */}
         <div className="flex items-center justify-between px-4 md:px-12 lg:px-28 absolute top-[64px] md:top-[158px] left-0 w-full z-40">

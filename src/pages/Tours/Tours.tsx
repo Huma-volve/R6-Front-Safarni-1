@@ -5,7 +5,6 @@ import TourCard from "../../components/TourCard/TourCard";
 import type { Tour } from "../../types/mohamed/types";
 import { useState, useMemo } from "react";
 import Loading from "../../components/Loading/Loading";
-import { Helmet, HelmetProvider } from "react-helmet-async";
 
 const Tours = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -30,11 +29,6 @@ const Tours = () => {
 
   return (
     <>
-      <HelmetProvider>
-        <Helmet>
-          <title>Safarni - Tours</title>
-        </Helmet>
-      </HelmetProvider>
       <SearchCompare onSearch={setSearchQuery} formInput={"true"} />
 
       <div className="pt-50 md:pt-60 px-8 md:px-[130px] pb-8 overflow-hidden">

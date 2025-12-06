@@ -2,6 +2,7 @@ type SignupData = {
   name: string;
   email: string;
   password: string;
+  password_confirmation: string;
 };
 type SignupResponse = {
   status: number;
@@ -13,17 +14,14 @@ type SignupResponse = {
   };
 };
 export async function signup(userData: SignupData): Promise<SignupResponse> {
-  const formData = new FormData();
-  formData.append("name", userData.name);
-  formData.append("email", userData.email);
-  formData.append("password", userData.password);
-
+  console.log("API", userData);
   try {
     const res = await fetch(
-      "https://round5-safarnia.huma-volve.com/api/register",
+      "https://round7-safarni-team-one.huma-volve.com/api/v1/auth/register",
       {
         method: "POST",
-        body: formData,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(userData),
       }
     );
 
@@ -57,22 +55,21 @@ type LoginResponse = {
   message: string;
   data: {
     token?: string;
-    name?: string;
-    email: string;
+    user: {
+      id: number;
+      name?: string;
+      email: string;
+    };
   };
 };
 export async function login(userData: LoginData): Promise<LoginResponse> {
-  const formData = new FormData();
-  formData.append("email", userData.email);
-  formData.append("password", userData.password);
-
   try {
     const res = await fetch(
-      "https://round5-safarnia.huma-volve.com/api/login",
+      "https://round7-safarni-team-one.huma-volve.com/api/v1/auth/login",
       {
         method: "POST",
-
-        body: formData,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(userData),
       }
     );
     if (!res.ok) {
@@ -109,7 +106,7 @@ export async function forgetPassword(
   // }
   try {
     const res = await fetch(
-      "https://round5-safarnia.huma-volve.com/api/forgot-password",
+      "https://round7-safarni-team-one.huma-volve.com/api/forgot-password",
       {
         method: "POST",
         body: formData,
@@ -136,20 +133,25 @@ type OTPData = {
 type OTPResponse = {
   status: number;
   message: string;
-  data: string;
+  data: {
+    user: {
+      id: number;
+      name: string;
+      email: string;
+    };
+    token: string;
+  };
 };
 export async function verifyOTP(userData: OTPData): Promise<OTPResponse> {
-  const emailforOTP = localStorage.getItem("email");
-  const formData = new FormData();
-  formData.append("email", emailforOTP || "");
-  formData.append("otp", userData.otp);
-
   try {
-    const res = await fetch("https://round5-safarnia.huma-volve.com/api/otp", {
-      method: "POST",
-      // headers: { "Content-Type": "application/json" },
-      body: formData,
-    });
+    const res = await fetch(
+      "https://round7-safarni-team-one.huma-volve.com/api/v1/auth/verify-otp",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(userData),
+      }
+    );
     if (!res.ok) {
       const error = await res.json();
       throw new Error(error.message || "otp failed");
@@ -182,7 +184,7 @@ export async function resetPassword(
   console.log(token);
   try {
     const res = await fetch(
-      "https://round5-safarnia.huma-volve.com/api/reset-password",
+      "https://round7-safarni-team-one.huma-volve.com/api/reset-password",
       {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },

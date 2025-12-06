@@ -7,7 +7,6 @@ import LockRoundedIcon from "@mui/icons-material/LockRounded";
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import { useNavigate } from "react-router-dom";
 import ResponsiveDialog from "../../components/Logout/Logout";
-import { Helmet, HelmetProvider } from "react-helmet-async";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -24,11 +23,6 @@ const Profile = () => {
 
   return (
     <>
-      <HelmetProvider>
-        <Helmet>
-          <title>Safarni - Profile</title>
-        </Helmet>
-      </HelmetProvider>
       <div className="container w-full sm:w-[90%] lg:w-[80%] mx-auto mt-6 px-4 md:px-0">
         <div className="personal md:mt-40  flex flex-col sm:flex-row items-center gap-5 sm:gap-7 p-5 rounded-lg border border-gray-500 hover:bg-gray-50 hover:scale-[1.02] transition-all duration-200 ease-in-out">
           <div className="profile flex relative justify-center sm:justify-start">
@@ -110,7 +104,6 @@ const Profile = () => {
           </div>
         </div>
       </div>
-
     </>
   );
 };

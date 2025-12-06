@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState, useEffect } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
@@ -12,7 +13,6 @@ import {
   filterCarsByBrand,
 } from "../../types/CarBooking/CarTypes";
 import { useNavigate } from "react-router-dom";
-import { Helmet, HelmetProvider } from "react-helmet-async";
 
 const CarRentalApp = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -58,11 +58,6 @@ const CarRentalApp = () => {
 
   return (
     <>
-      <HelmetProvider>
-        <Helmet>
-          <title>Safarni - Car Booking</title>
-        </Helmet>
-      </HelmetProvider>
       <div className="bg-white min-h-screen">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between gap-10 mb-8 w-full">

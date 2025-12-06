@@ -9,14 +9,12 @@ import StarRateRoundedIcon from "@mui/icons-material/StarRateRounded";
 import { useNavigate } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import NavbarMobile from "../../components/NavbarMobile/NavbarMobile";
-import { Helmet, HelmetProvider } from "react-helmet-async";
 
 type FavoritesResponse = {
   data: FavoriteData[];
 };
 
 const Favorites = () => {
-
   const navigate = useNavigate();
   const { isLoading, error, data } = useQuery<FavoritesResponse>({
     queryKey: ["favorites"],
@@ -46,11 +44,6 @@ const Favorites = () => {
 
   return (
     <>
-      <HelmetProvider>
-        <Helmet>
-          <title>Safarni - Map</title>
-        </Helmet>
-      </HelmetProvider>
       <div className="my-20 md:mt-35  ">
         <div className=" w-[80%] mx-auto mb-6">
           <button

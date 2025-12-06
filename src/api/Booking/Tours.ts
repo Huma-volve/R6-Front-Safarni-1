@@ -7,7 +7,7 @@ type Data = {
 export async function getAllTours(): Promise<Data> {
   const token = localStorage.getItem("authToken");
   return await fetch(
-    "https://round5-safarnia.huma-volve.com/api/my-tour-bookings",
+    "https://round7-safarni-team-one.huma-volve.com/api/my-tour-bookings",
     {
       method: "GET",
       headers: {

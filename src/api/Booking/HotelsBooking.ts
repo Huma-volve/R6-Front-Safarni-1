@@ -1,15 +1,21 @@
-import type { Hotel, Room, Review, Booking } from "../../types/HotelTypes/HotelTypes";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type {
+  Hotel,
+  Room,
+  Review,
+  Booking,
+} from "../../types/HotelTypes/HotelTypes";
 
-export const API_BASE_URL = "https://round5-safarnia.huma-volve.com/api";
-export const BEARER_TOKEN =
-  "Bearer AcF8WHbQ6KJCA7P0vIV9D5bZswy6Kc4j20Gx00fXd7c1170b";
+export const API_BASE_URL =
+  "https://round7-safarni-team-one.huma-volve.com/api/";
+export const BEARER_TOKEN = localStorage.getItem("authToken");
 
 export const fetchRoomDetails = async (id: number): Promise<Room> => {
   const response = await fetch(`${API_BASE_URL}/room/details/${id}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      Authorization: BEARER_TOKEN,
+      Authorization: `${BEARER_TOKEN}`,
     },
   });
 
@@ -23,7 +29,7 @@ export const fetchHotels = async (): Promise<Hotel[]> => {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      Authorization: BEARER_TOKEN,
+      Authorization: `${BEARER_TOKEN}`
     },
   });
 
@@ -39,7 +45,7 @@ export const fetchRoomsAvailability = async (
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
-      Authorization: BEARER_TOKEN,
+      Authorization: `${BEARER_TOKEN}`
     },
   });
 
@@ -53,7 +59,7 @@ export const fetchReviews = async (roomId: number): Promise<Review[]> => {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      Authorization: BEARER_TOKEN,
+      Authorization: `${BEARER_TOKEN}`
     },
   });
 
@@ -80,7 +86,7 @@ export const submitReview = async (
     body: formData,
     headers: {
       Accept: "application/json",
-      Authorization: BEARER_TOKEN,
+      Authorization: `${BEARER_TOKEN}`
     },
   });
 
@@ -93,7 +99,7 @@ export const bookRoom = async (bookingData: Booking): Promise<any> => {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      Authorization: BEARER_TOKEN,
+      Authorization: `${BEARER_TOKEN}`
     },
     body: JSON.stringify(bookingData),
   });

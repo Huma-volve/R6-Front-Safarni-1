@@ -24,7 +24,6 @@ export default function Recommendation() {
 
   return (
     <>
-      .
       <div className="md:mx-[100px]">
         <div className="flex flex-row justify-between p-4 md:p-0 items-center">
           <h1 className="font-poppins font-medium text-2xl text-[#111928]">

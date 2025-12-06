@@ -11,13 +11,16 @@ type Data = {
 export default async function getAllDestinations(): Promise<Data> {
   try {
     const token = localStorage.getItem("authToken");
-    const res = await fetch("https://round5-safarnia.huma-volve.com/api/allcategory", {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        Accept: "application/json",
-      },
-    });
+    const res = await fetch(
+      "https://round7-safarni-team-one.huma-volve.com/api/allcategory",
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          Accept: "application/json",
+        },
+      }
+    );
 
     if (!res.ok) {
       throw new Error(`HTTP error! status: ${res.status}`);
@@ -25,7 +28,6 @@ export default async function getAllDestinations(): Promise<Data> {
 
     const json = await res.json();
     return { data: json.data || [] };
-
   } catch (err) {
     console.error("Error fetching destinations:", err);
     return { data: [] };

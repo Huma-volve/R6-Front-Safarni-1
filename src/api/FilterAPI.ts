@@ -4,7 +4,7 @@ export async function allSearchedTours(
 ): Promise<SearchToursResponse[]> {
   try {
     const res = await fetch(
-      `https://round5-safarnia.huma-volve.com/api/tours${params}`,
+      `https://round7-safarni-team-one.huma-volve.com/api/tours${params}`,
       {
         method: "GET",
         headers: { "Content-Type": "application/json" },

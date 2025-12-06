@@ -6,13 +6,16 @@ type Data = {
 
 export async function getAllFlight(): Promise<Data> {
   const token = localStorage.getItem("authToken");
-  return await fetch("https://round5-safarnia.huma-volve.com/api/flights", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-  })
+  return await fetch(
+    "https://round7-safarni-team-one.huma-volve.com/api/flights",
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  )
     .then((res) => res.json())
     .catch((err) => console.log(err));
 }

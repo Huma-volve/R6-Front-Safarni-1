@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Formik, Form, useField } from "formik";
 import * as Yup from "yup";
 import { TextField, InputAdornment } from "@mui/material";
@@ -43,7 +44,7 @@ export default function LoginForm() {
     email: Yup.string().email("Invalid Email").required("Email is required!"),
     password: Yup.string()
       .min(8, "Must be at least 8 characters")
-      .matches(/[@$!%*?&]/, "Must contain one special character")
+      // .matches(/[@$!%*?&]/, "Must contain one special character")
       .required("Password is required!"),
   });
 

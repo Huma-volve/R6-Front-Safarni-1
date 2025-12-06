@@ -1,17 +1,10 @@
 import landing from "./../../assets/landing.png";
 import headers from "./../../assets/headers.png";
 import arrow from "./../../assets/Clip-path-group.png";
-import { Helmet, HelmetProvider } from "react-helmet-async";
 
 export default function Landing() {
   return (
     <>
-      <HelmetProvider>
-        <Helmet>
-          <title>Safarni - Home</title>
-        </Helmet>
-      </HelmetProvider>
-
       <div className="md:mx-[100px] flex flex-col-reverse md:flex-row items-center justify-between mt-30 overflow-hidden ">
         <div className="flex flex-col md:items-start justify-center p-4 md:p-0 pb-20 ">
           <div className="relative mb-5">
