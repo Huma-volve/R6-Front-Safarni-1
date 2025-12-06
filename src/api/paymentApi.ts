@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 const API_BASE = "https://round7-safarni-team-one.huma-volve.com/api/";
 
 export async function initiateCheckout(
