@@ -1,11 +1,11 @@
 export type CategoryResponse = {
-  id : number,
+  id: number;
   title: string;
   image: string | undefined;
   data: { title: string; description: string; image: string };
 };
 export type RecommendedTourResponse = {
-  status: string;
+  success: string;
   id: number;
   title: string;
   location: string;
@@ -18,6 +18,13 @@ export type RecommendedTourResponse = {
     image: string;
     rating: string;
   };
+};
+export type Tours = {
+  id: number;
+  title: string;
+  location: string;
+  image: string;
+  rating: string;
 };
 
 export type TrendingToursResponse = {

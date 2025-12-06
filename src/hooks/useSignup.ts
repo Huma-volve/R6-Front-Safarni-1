@@ -10,7 +10,7 @@ export function useSignup() {
     mutationFn: signup,
     onSuccess: (data) => {
       toast.success(data.message);
-      navigate("/verify-code");
+      navigate("/home");
     },
     onError: (data) => {
       toast.error(data.message);
