@@ -40,7 +40,7 @@ export default function SignupForm() {
     email: Yup.string().email("Invalid Email").required("Email is required!"),
     password: Yup.string()
       .min(8, "Must be at least 8 characters")
-      .matches(/[@$!%*?&]/, "Must contain one special character")
+      // .matches(/[@$!%*?&]/, "Must contain one special character")
       .required("Password is required!"),
     password_confirmation: Yup.string()
       .min(8, "Must be at least 8 characters")
