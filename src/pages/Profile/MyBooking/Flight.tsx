@@ -1,28 +1,25 @@
-import FlightOutlinedIcon from '@mui/icons-material/FlightOutlined';
-import { useQuery } from '@tanstack/react-query';
-import { getAllFlight } from '../../../api/Booking/Flight';
-import type { FlightData } from '../../../types/types';
-import Loading from '../../../components/Loading/Loading';
+import FlightOutlinedIcon from "@mui/icons-material/FlightOutlined";
+import { useQuery } from "@tanstack/react-query";
+import { getAllFlight } from "../../../api/Booking/Flight";
+import type { FlightData } from "../../../types/Khaled/Fav/types";
+import Loading from "../../../components/Loading/Loading";
 
 const Flight = () => {
-
-
-
-
   const { isLoading, error, data } = useQuery({
     queryKey: ["flights"],
     queryFn: () => getAllFlight(),
   });
 
-
-
-
   const flights: FlightData[] = data?.data || [];
 
-  if (isLoading) return <div className="text-center text-black">
-    <Loading />
-  </div>;
-  if (error instanceof Error) return <div className="text-red-500">Error: {error.message}</div>;
+  if (isLoading)
+    return (
+      <div className="text-center text-black">
+        <Loading />
+      </div>
+    );
+  if (error instanceof Error)
+    return <div className="text-red-500">Error: {error.message}</div>;
 
   return (
     <div className="grid gap-6 grid-cols-1 mt-6">
@@ -40,7 +37,9 @@ const Flight = () => {
 
           <div className="flex items-center justify-between mt-3">
             <div className="flex flex-col text-left">
-              <span className="text-black font-medium">{item.departure_time}</span>
+              <span className="text-black font-medium">
+                {item.departure_time}
+              </span>
               <span className="text-black text-sm">{item.from}</span>
             </div>
 
@@ -50,7 +49,9 @@ const Flight = () => {
             </div>
 
             <div className="flex flex-col text-right">
-              <span className="text-black font-medium">{item.arrival_time}</span>
+              <span className="text-black font-medium">
+                {item.arrival_time}
+              </span>
               <span className="text-black text-sm">{item.to}</span>
             </div>
           </div>
@@ -59,11 +60,15 @@ const Flight = () => {
 
           <div className="flex items-center justify-between">
             <div className="text-center">
-              <span className="block text-lg font-bold text-black">{item.price}$</span>
+              <span className="block text-lg font-bold text-black">
+                {item.price}$
+              </span>
               <p className="text-black text-sm">Price</p>
             </div>
             <div className="text-center">
-              <span className="block text-lg font-bold text-black">{item.id}</span>
+              <span className="block text-lg font-bold text-black">
+                {item.id}
+              </span>
               <p className="text-black text-sm">Flight No.</p>
             </div>
           </div>

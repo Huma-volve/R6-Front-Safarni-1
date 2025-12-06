@@ -21,7 +21,7 @@ const CarRentalApp = () => {
   const [cars, setCars] = useState<Car[]>([]);
   const [filteredCars, setFilteredCars] = useState<Car[]>([]);
   const navigate = useNavigate();
-
+  console.log(brandFilter);
   useEffect(() => {
     const loadCars = async () => {
       const carsData = await fetchCarsData();
