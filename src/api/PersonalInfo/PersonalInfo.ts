@@ -1,4 +1,4 @@
-import type { PersonalInfoData } from "../../types/types";
+import type { PersonalInfoData } from "../../types/Khaled/Fav/types";
 
 type Data = {
   data: PersonalInfoData;

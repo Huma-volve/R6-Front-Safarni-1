@@ -11,7 +11,7 @@ import google from "../../assets/google.png";
 import facebook from "../../assets/facebook.png";
 import apple from "../../assets/apple.png";
 
-const FormikTextField = ({ name, ...props }) => {
+const FormikTextField = ({ name, ...props }: any) => {
   const [field, meta] = useField(name);
   return (
     <TextField

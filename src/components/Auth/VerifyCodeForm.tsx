@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import { Formik, Form, useField } from "formik";
-import { useEffect, useState } from "react";
+
 import OtpInput from "react-otp-input";
-import { Link } from "react-router-dom";
+
 import * as Yup from "yup";
 import { useOTP } from "../../hooks/useOTP";
 import { InputAdornment, TextField } from "@mui/material";
@@ -12,7 +13,7 @@ import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 export default function VerifyCodeForm() {
   const { mutate } = useOTP();
   // const [timeLeft, setTimeLeft] = useState(60); // 60 seconds
-  const FormikTextField = ({ name, ...props }) => {
+  const FormikTextField = ({ name, ...props }: any) => {
     const [field, meta] = useField(name);
     return (
       <TextField
@@ -90,7 +91,7 @@ export default function VerifyCodeForm() {
               }}
               sx={{ "& .MuiInputBase-input": { padding: "8px 16px" } }}
             />
-            {/* <OtpInput
+            <OtpInput
               value={values.otp}
               onChange={(val) => /^\d*$/.test(val) && setFieldValue("otp", val)}
               numInputs={4}
@@ -104,7 +105,7 @@ export default function VerifyCodeForm() {
                            focus:border-2 focus:border-green-500 outline-none"
                 />
               )}
-            /> */}
+            />
 
             <button
               type="submit"
