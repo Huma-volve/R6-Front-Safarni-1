@@ -6,9 +6,9 @@ export default function WelcomePage() {
   const navigate = useNavigate();
   return (
     <>
-      <Logo className="flex flex-row md:justify-end justify-center " />
-      <div className=" flex justify-center items-center">
-        <div className="flex md:flex-row md:justify-between">
+      <Logo className=" flex flex-row md:justify-end justify-center " />
+      <div className=" flex justify-center items-center ">
+        <div className="flex flex-row justify-between">
           <div className="hidden md:block items-center justify-center bg-[#F4F4F4] rounded-[30px]">
             <img src={welcomeImage} alt="welcome-image" />
           </div>
